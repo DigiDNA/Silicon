@@ -74,7 +74,7 @@ public class MainWindowController: NSWindowController
                 
                 alert.beginSheetModal( for: window, completionHandler: nil )
                 
-                return false
+                return true
             }
             
             if app.architectures.contains( "arm64" )
@@ -97,7 +97,7 @@ public class MainWindowController: NSWindowController
             
             alert.beginSheetModal( for: window, completionHandler: nil )
             
-            return false
+            return true
         }
     }
     
