@@ -45,7 +45,7 @@ public class NumberToString: ValueTransformer
         
         if number.uint64Value == 0
         {
-            return "" as NSString
+            return "--" as NSString
         }
         
         return "\( number.uint64Value )" as NSString
