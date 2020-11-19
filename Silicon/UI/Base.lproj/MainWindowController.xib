@@ -291,16 +291,68 @@ DQ
                             <binding destination="-2" name="hidden" keyPath="self.started" id="Dyv-fm-cNV"/>
                         </connections>
                     </customView>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="LaE-H9-b8x">
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="500"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="od4-np-ZSC">
+                                <rect key="frame" x="277" y="376" width="246" height="26"/>
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="center" title="No Intel-only App Found!" id="mR2-ED-gkw">
+                                    <font key="font" textStyle="title1" name=".SFNS-Regular"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2uw-RO-zEl">
+                                <rect key="frame" x="287" y="133" width="226" height="235"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="🙂" id="Uyx-Xn-j3k">
+                                    <font key="font" metaFont="system" size="200"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IAS-cg-8cE">
+                                <rect key="frame" x="227" y="109" width="346" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="All your Apps will run natively on Apple Silicon hardware." id="hYV-4L-YQ7">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="2uw-RO-zEl" firstAttribute="centerX" secondItem="LaE-H9-b8x" secondAttribute="centerX" id="0Ew-am-idL"/>
+                            <constraint firstItem="IAS-cg-8cE" firstAttribute="centerX" secondItem="2uw-RO-zEl" secondAttribute="centerX" id="LIR-gG-nc3"/>
+                            <constraint firstItem="od4-np-ZSC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LaE-H9-b8x" secondAttribute="leading" constant="20" id="QVk-V3-aFy"/>
+                            <constraint firstItem="IAS-cg-8cE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LaE-H9-b8x" secondAttribute="leading" constant="20" id="UfP-H4-tdc"/>
+                            <constraint firstItem="IAS-cg-8cE" firstAttribute="top" secondItem="2uw-RO-zEl" secondAttribute="bottom" constant="8" symbolic="YES" id="i8N-Aj-POC"/>
+                            <constraint firstItem="od4-np-ZSC" firstAttribute="centerX" secondItem="2uw-RO-zEl" secondAttribute="centerX" id="iNd-CA-941"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IAS-cg-8cE" secondAttribute="trailing" constant="20" id="lDE-Zv-GyF"/>
+                            <constraint firstItem="2uw-RO-zEl" firstAttribute="top" secondItem="od4-np-ZSC" secondAttribute="bottom" constant="8" symbolic="YES" id="qqe-Bq-XoM"/>
+                            <constraint firstItem="2uw-RO-zEl" firstAttribute="centerY" secondItem="LaE-H9-b8x" secondAttribute="centerY" id="wvJ-Lr-Ud8"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="od4-np-ZSC" secondAttribute="trailing" constant="20" id="xtZ-yz-l3y"/>
+                        </constraints>
+                        <connections>
+                            <binding destination="-2" name="hidden" keyPath="self.empty" id="Vxr-hX-Ag5">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </customView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="1Uf-5D-8gz" secondAttribute="trailing" id="6U7-2m-Zok"/>
+                    <constraint firstItem="LaE-H9-b8x" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="KkL-Fk-NcA"/>
                     <constraint firstItem="1Uf-5D-8gz" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="L8F-BC-gDV"/>
+                    <constraint firstAttribute="bottom" secondItem="LaE-H9-b8x" secondAttribute="bottom" id="NEE-UP-bhb"/>
                     <constraint firstAttribute="bottom" secondItem="1Uf-5D-8gz" secondAttribute="bottom" id="QZJ-70-mfj"/>
                     <constraint firstItem="1Uf-5D-8gz" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="bFe-Xn-gp1"/>
                     <constraint firstItem="YHH-4l-Q5Y" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="ca4-fH-z4k"/>
                     <constraint firstItem="YHH-4l-Q5Y" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="dPp-xC-ZyU"/>
+                    <constraint firstItem="LaE-H9-b8x" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="jLs-y2-7lq"/>
                     <constraint firstAttribute="trailing" secondItem="YHH-4l-Q5Y" secondAttribute="trailing" id="kwE-Zr-RxW"/>
                     <constraint firstAttribute="bottom" secondItem="YHH-4l-Q5Y" secondAttribute="bottom" id="mM4-L6-ACj"/>
+                    <constraint firstAttribute="trailing" secondItem="LaE-H9-b8x" secondAttribute="trailing" id="vq2-8j-lsf"/>
                 </constraints>
             </view>
             <contentBorderThickness minY="32"/>

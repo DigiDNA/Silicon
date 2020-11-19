@@ -120,6 +120,13 @@ public class MainWindowController: NSWindowController
             DispatchQueue.main.async
             {
                 self.loading = false
+                
+                if self.appCount == 0
+                {
+                    self.window?.setContentBorderThickness( 0, for: .minY )
+                    
+                    self.empty = true
+                }
             }
         }
     }
