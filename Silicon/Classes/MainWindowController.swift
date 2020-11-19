@@ -32,13 +32,17 @@ public class MainWindowController: NSWindowController
     @objc public private( set ) dynamic var appsFolderOnly  = true
     @objc public private( set ) dynamic var recurseIntoApps = false
     @objc public private( set ) dynamic var appCount        = UInt64( 0 )
-    @objc public private( set ) dynamic var intelOnly       = false
+    @objc public private( set ) dynamic var archFilter      = 0
     {
         didSet
         {
-            if self.intelOnly
+            if self.archFilter == 1
             {
                 self.archFilteredApps.filterPredicate = NSPredicate( format: "isAppleSiliconReady=NO" )
+            }
+            else if self.archFilter == 2
+            {
+                self.archFilteredApps.filterPredicate = NSPredicate( format: "isAppleSiliconReady=YES" )
             }
             else
             {

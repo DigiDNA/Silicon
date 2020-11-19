@@ -33,8 +33,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="800" height="500"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Vg5-OF-lwM">
-                                        <rect key="frame" x="225" y="427" width="351" height="26"/>
-                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="center" title="Identify Intel-only Apps on your Mac" id="DFM-dV-koX">
+                                        <rect key="frame" x="223" y="427" width="355" height="26"/>
+                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="center" title="Identify Intel-Only Apps on your Mac" id="DFM-dV-koX">
                                             <font key="font" textStyle="title1" name=".SFNS-Regular"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -318,18 +318,25 @@ DQ
                                             <binding destination="-2" name="animate" keyPath="self.loading" id="jwW-SC-hZE"/>
                                         </connections>
                                     </progressIndicator>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RcE-WQ-r32">
-                                        <rect key="frame" x="201" y="10" width="155" height="18"/>
-                                        <buttonCell key="cell" type="check" title="Show Intel-only Apps" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="sJh-wg-r71">
-                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
+                                    <popUpButton wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Cye-qz-z7R">
+                                        <rect key="frame" x="200" y="5" width="263" height="25"/>
+                                        <popUpButtonCell key="cell" type="push" title="Show All Apps" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="QoR-x6-4UR" id="JUp-NH-6jS">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="menu"/>
+                                            <menu key="menu" id="Fcm-dI-NNv">
+                                                <items>
+                                                    <menuItem title="Show All Apps" state="on" id="QoR-x6-4UR"/>
+                                                    <menuItem title="Show Intel-Only Apps" id="ux4-9b-ut4"/>
+                                                    <menuItem title="Show Apple SIlicon Compatible Apps" id="uJw-yo-gLb"/>
+                                                </items>
+                                            </menu>
+                                        </popUpButtonCell>
                                         <connections>
-                                            <binding destination="-2" name="value" keyPath="self.intelOnly" id="qoS-Ov-HcC"/>
+                                            <binding destination="-2" name="selectedIndex" keyPath="self.archFilter" id="ROS-cK-nch"/>
                                         </connections>
-                                    </button>
+                                    </popUpButton>
                                     <searchField wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2P9-ac-fjj">
-                                        <rect key="frame" x="364" y="8" width="428" height="22"/>
+                                        <rect key="frame" x="467" y="8" width="325" height="22"/>
                                         <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="tJe-P9-fC8">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -349,23 +356,24 @@ DQ
                                     <constraint firstAttribute="trailing" secondItem="y1x-cB-ONP" secondAttribute="trailing" id="4KV-dQ-Hvj"/>
                                     <constraint firstAttribute="bottom" secondItem="2P9-ac-fjj" secondAttribute="bottom" constant="8" id="4ic-jW-dPG"/>
                                     <constraint firstItem="gOG-g2-H7Y" firstAttribute="top" secondItem="1Uf-5D-8gz" secondAttribute="top" constant="25" id="8ML-05-06n"/>
-                                    <constraint firstItem="2P9-ac-fjj" firstAttribute="leading" secondItem="RcE-WQ-r32" secondAttribute="trailing" constant="8" symbolic="YES" id="AGz-Qm-t9w"/>
                                     <constraint firstItem="Og5-pw-YO3" firstAttribute="centerY" secondItem="hdw-9V-Hlw" secondAttribute="centerY" id="CYL-H4-hw6"/>
                                     <constraint firstItem="y1x-cB-ONP" firstAttribute="leading" secondItem="1Uf-5D-8gz" secondAttribute="leading" id="Hio-eQ-X8Q"/>
                                     <constraint firstItem="EXT-aP-E37" firstAttribute="centerY" secondItem="Og5-pw-YO3" secondAttribute="centerY" id="Nl6-AL-6Za"/>
                                     <constraint firstItem="lhn-dQ-baP" firstAttribute="top" secondItem="gOG-g2-H7Y" secondAttribute="bottom" id="OPX-PH-wP3"/>
-                                    <constraint firstItem="RcE-WQ-r32" firstAttribute="centerY" secondItem="EXT-aP-E37" secondAttribute="centerY" id="QMx-3y-1dc"/>
                                     <constraint firstAttribute="trailing" secondItem="gOG-g2-H7Y" secondAttribute="trailing" id="S3D-3Q-Yke"/>
+                                    <constraint firstItem="2P9-ac-fjj" firstAttribute="leading" secondItem="Cye-qz-z7R" secondAttribute="trailing" constant="8" symbolic="YES" id="Sqb-wh-42b"/>
                                     <constraint firstItem="gOG-g2-H7Y" firstAttribute="leading" secondItem="1Uf-5D-8gz" secondAttribute="leading" id="TBG-Zr-omt"/>
                                     <constraint firstAttribute="trailing" secondItem="2P9-ac-fjj" secondAttribute="trailing" constant="8" id="VkA-Pl-ZcP"/>
-                                    <constraint firstItem="RcE-WQ-r32" firstAttribute="leading" secondItem="EXT-aP-E37" secondAttribute="trailing" constant="8" symbolic="YES" id="ZK9-Du-ART"/>
                                     <constraint firstAttribute="trailing" secondItem="lhn-dQ-baP" secondAttribute="trailing" id="ZYh-HG-Hce"/>
                                     <constraint firstItem="y1x-cB-ONP" firstAttribute="top" secondItem="lhn-dQ-baP" secondAttribute="bottom" id="dVT-ES-8Qf"/>
+                                    <constraint firstItem="Cye-qz-z7R" firstAttribute="leading" secondItem="EXT-aP-E37" secondAttribute="trailing" constant="8" symbolic="YES" id="fZa-jS-FFH"/>
                                     <constraint firstItem="EXT-aP-E37" firstAttribute="leading" secondItem="Og5-pw-YO3" secondAttribute="trailing" constant="8" symbolic="YES" id="gwv-oQ-tlT"/>
                                     <constraint firstItem="hdw-9V-Hlw" firstAttribute="centerY" secondItem="2P9-ac-fjj" secondAttribute="centerY" id="lKR-ZO-SG5"/>
                                     <constraint firstItem="hdw-9V-Hlw" firstAttribute="leading" secondItem="1Uf-5D-8gz" secondAttribute="leading" constant="8" id="nEF-L3-vb9"/>
                                     <constraint firstItem="2P9-ac-fjj" firstAttribute="top" secondItem="y1x-cB-ONP" secondAttribute="bottom" constant="8" symbolic="YES" id="qQz-38-vJv"/>
+                                    <constraint firstItem="Cye-qz-z7R" firstAttribute="centerY" secondItem="EXT-aP-E37" secondAttribute="centerY" id="qXP-CR-Tcs"/>
                                     <constraint firstItem="lhn-dQ-baP" firstAttribute="leading" secondItem="1Uf-5D-8gz" secondAttribute="leading" id="sMY-TN-g5o"/>
+                                    <constraint firstItem="Cye-qz-z7R" firstAttribute="centerY" secondItem="2P9-ac-fjj" secondAttribute="centerY" id="uL8-FB-s6U"/>
                                     <constraint firstItem="Og5-pw-YO3" firstAttribute="leading" secondItem="hdw-9V-Hlw" secondAttribute="trailing" constant="10" id="vb2-eh-oLK"/>
                                 </constraints>
                                 <connections>
