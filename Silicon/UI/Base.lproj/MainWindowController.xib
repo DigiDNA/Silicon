@@ -264,6 +264,7 @@ DQ
                                                         </tableColumn>
                                                     </tableColumns>
                                                     <connections>
+                                                        <action trigger="doubleAction" selector="revealApp:" target="-2" id="7NC-Xl-Tvl"/>
                                                         <binding destination="Qcp-da-Tnd" name="content" keyPath="arrangedObjects" id="zpx-JL-NfN"/>
                                                         <binding destination="Qcp-da-Tnd" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="zpx-JL-NfN" id="ymj-g9-O0H"/>
                                                         <binding destination="Qcp-da-Tnd" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="ymj-g9-O0H" id="OI7-Sh-5eu"/>

@@ -150,6 +150,18 @@ public class MainWindowController: NSWindowController
         }
     }
     
+    @IBAction private func revealApp( _ sender: Any? )
+    {
+        guard let app = self.arrayController.selectedObjects.first as? App else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        app.showInFinder( sender )
+    }
+    
     private func findApps()
     {
         let root = self.appsFolderOnly ? "/Applications" : "/"
