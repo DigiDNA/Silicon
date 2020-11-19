@@ -26,9 +26,11 @@ import Cocoa
 
 public class MainWindowController: NSWindowController
 {
-    @objc public private( set ) dynamic var started  = false
-    @objc public private( set ) dynamic var loading  = false
-    @objc public private( set ) dynamic var appCount = UInt64( 0 )
+    @objc public private( set ) dynamic var started        = false
+    @objc public private( set ) dynamic var loading        = false
+    @objc public private( set ) dynamic var empty          = false
+    @objc public private( set ) dynamic var appsFolderOnly = true
+    @objc public private( set ) dynamic var appCount       = UInt64( 0 )
     
     @IBOutlet public private( set ) dynamic var arrayController: NSArrayController!
     
@@ -75,7 +77,9 @@ public class MainWindowController: NSWindowController
     
     private func findApps()
     {
-        guard let enumerator = FileManager.default.enumerator( atPath: "/" ) else
+        let root = self.appsFolderOnly ? "/Applications" : "/"
+        
+        guard let enumerator = FileManager.default.enumerator( atPath: root ) else
         {
             return
         }
@@ -87,7 +91,7 @@ public class MainWindowController: NSWindowController
                 continue
             }
             
-            path = "/\( path )"
+            path = "\( root )/\( path )"
             
             if path.hasPrefix( "/Volumes" )
             {

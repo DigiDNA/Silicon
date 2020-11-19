@@ -62,14 +62,14 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="-2" name="hidden" keyPath="self.loading" id="U3M-c9-ddB">
-                                        <dictionary key="options">
-                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                        </dictionary>
-                                    </binding>
                                     <binding destination="-2" name="value" keyPath="self.appCount" id="hSe-Vf-D7u">
                                         <dictionary key="options">
                                             <string key="NSValueTransformerName">Silicon.NumberToString</string>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="-2" name="hidden" keyPath="self.loading" id="U3M-c9-ddB">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
                                         </dictionary>
                                     </binding>
                                 </connections>
@@ -200,6 +200,14 @@
                             <constraint firstItem="U5b-ab-9UO" firstAttribute="leading" secondItem="ab6-bP-FgM" secondAttribute="trailing" constant="8" symbolic="YES" id="zfg-uw-Yyz"/>
                         </constraints>
                         <connections>
+                            <binding destination="-2" name="hidden2" keyPath="self.empty" previousBinding="cQi-ue-O7a" id="YjK-W0-geS">
+                                <dictionary key="options">
+                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                    <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                    <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                    <integer key="NSNullPlaceholder" value="-1"/>
+                                </dictionary>
+                            </binding>
                             <binding destination="-2" name="hidden" keyPath="self.started" id="cQi-ue-O7a">
                                 <dictionary key="options">
                                     <string key="NSValueTransformerName">NSNegateBoolean</string>
@@ -239,17 +247,31 @@ DQ
                                     <action selector="reload:" target="-2" id="wxy-jM-fA3"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Laz-gS-Jtn">
+                                <rect key="frame" x="284" y="45" width="231" height="18"/>
+                                <buttonCell key="cell" type="check" title="Only Scan the Applications Folder" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="b2W-HI-GII">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <binding destination="-2" name="value" keyPath="self.appsFolderOnly" id="Tbg-LJ-EeI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Vg5-OF-lwM" secondAttribute="trailing" constant="20" id="6Mo-DN-Fgy"/>
                             <constraint firstItem="8gx-Ax-TYI" firstAttribute="centerY" secondItem="YHH-4l-Q5Y" secondAttribute="centerY" id="8DV-fL-Qzj"/>
                             <constraint firstItem="8gx-Ax-TYI" firstAttribute="centerX" secondItem="YHH-4l-Q5Y" secondAttribute="centerX" id="95y-7F-A4w"/>
+                            <constraint firstItem="Laz-gS-Jtn" firstAttribute="centerX" secondItem="HSf-FE-jD5" secondAttribute="centerX" id="Eyw-FU-zaO"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HSf-FE-jD5" secondAttribute="trailing" constant="20" id="Grs-BI-HmM"/>
                             <constraint firstItem="HSf-FE-jD5" firstAttribute="top" secondItem="8gx-Ax-TYI" secondAttribute="bottom" constant="20" symbolic="YES" id="Nvj-78-is0"/>
                             <constraint firstItem="Vg5-OF-lwM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YHH-4l-Q5Y" secondAttribute="leading" constant="20" id="Pt1-7W-jre"/>
                             <constraint firstItem="Vg5-OF-lwM" firstAttribute="centerX" secondItem="8gx-Ax-TYI" secondAttribute="centerX" id="RsM-jW-Tnw"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Laz-gS-Jtn" secondAttribute="trailing" constant="20" id="Ssa-sg-dMi"/>
                             <constraint firstItem="8gx-Ax-TYI" firstAttribute="top" secondItem="Vg5-OF-lwM" secondAttribute="bottom" constant="8" symbolic="YES" id="iW8-wl-Lgs"/>
+                            <constraint firstItem="Laz-gS-Jtn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YHH-4l-Q5Y" secondAttribute="leading" constant="20" id="iig-0U-bUw"/>
                             <constraint firstItem="HSf-FE-jD5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YHH-4l-Q5Y" secondAttribute="leading" constant="20" id="k6C-us-glF"/>
+                            <constraint firstItem="Laz-gS-Jtn" firstAttribute="top" secondItem="HSf-FE-jD5" secondAttribute="bottom" constant="20" symbolic="YES" id="l4W-l0-3QF"/>
                             <constraint firstItem="HSf-FE-jD5" firstAttribute="centerX" secondItem="8gx-Ax-TYI" secondAttribute="centerX" id="qRS-IQ-MkI"/>
                         </constraints>
                         <connections>
