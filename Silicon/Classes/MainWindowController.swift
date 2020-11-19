@@ -26,12 +26,13 @@ import Cocoa
 
 public class MainWindowController: NSWindowController
 {
-    @objc public private( set ) dynamic var started        = false
-    @objc public private( set ) dynamic var loading        = false
-    @objc private               dynamic var stop           = false
-    @objc public private( set ) dynamic var appsFolderOnly = true
-    @objc public private( set ) dynamic var appCount       = UInt64( 0 )
-    @objc public private( set ) dynamic var intelOnly      = false
+    @objc public private( set ) dynamic var started         = false
+    @objc public private( set ) dynamic var loading         = false
+    @objc private               dynamic var stop            = false
+    @objc public private( set ) dynamic var appsFolderOnly  = true
+    @objc public private( set ) dynamic var recurseIntoApps = false
+    @objc public private( set ) dynamic var appCount        = UInt64( 0 )
+    @objc public private( set ) dynamic var intelOnly       = false
     {
         didSet
         {
@@ -176,6 +177,11 @@ public class MainWindowController: NSWindowController
             if path.hasSuffix( ".app" ) == false
             {
                 continue
+            }
+            
+            if self.recurseIntoApps == false
+            {
+                enumerator.skipDescendents()
             }
             
             if let app = App( path: path )
