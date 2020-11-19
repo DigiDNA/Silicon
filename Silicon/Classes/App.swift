@@ -43,11 +43,17 @@ import Cocoa
             return nil
         }
         
-        self.name  = FileManager.default.displayName( atPath: path )
-        self.path  = path
-        self.icon  = NSWorkspace.shared.icon( forFile: path )
+        self.name = FileManager.default.displayName( atPath: path )
+        self.path = path
+        self.icon = NSWorkspace.shared.icon( forFile: path )
+        
+        if self.name.hasSuffix( ".app" )
+        {
+            self.name = ( self.name as NSString ).deletingPathExtension
+        }
+        
         let name   = ( ( path as NSString ).lastPathComponent as NSString ).deletingPathExtension
-        let binary = "\( self.path )/Contents/MacOS/\( name )"
+        let binary = "\( path )/Contents/MacOS/\( name )"
         
         if FileManager.default.fileExists( atPath: binary ) == false
         {
