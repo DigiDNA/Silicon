@@ -33,6 +33,7 @@ public class MainWindowController: NSWindowController
     @objc public private( set ) dynamic var appCount       = UInt64( 0 )
     
     @IBOutlet public private( set ) dynamic var arrayController: NSArrayController!
+    @IBOutlet public private( set ) dynamic var dropView:        DropView!
     
     public override var windowNibName: NSNib.Name?
     {
@@ -49,6 +50,52 @@ public class MainWindowController: NSWindowController
         ]
         
         self.window?.setContentBorderThickness( 0, for: .minY )
+        
+        self.dropView.onDrag = { _ in return true }
+        self.dropView.onDrop =
+        {
+            urls in
+            
+            guard let window = self.window, let url = urls.first else
+            {
+                NSSound.beep()
+                
+                return false
+            }
+            
+            guard let app = App( path: url.path ) else
+            {
+                let alert = NSAlert()
+                
+                alert.messageText     = "Not an Application"
+                alert.informativeText = "The file you dropped was not detected as a macOS application."
+                
+                alert.beginSheetModal( for: window, completionHandler: nil )
+                
+                return false
+            }
+            
+            if app.architectures.contains( "arm64" )
+            {
+                let alert = NSAlert()
+                
+                alert.messageText     = "Apple Silicon Supported"
+                alert.informativeText = "The application will run natively on Apple Silicon hardware."
+                
+                alert.beginSheetModal( for: window, completionHandler: nil )
+                
+                return true
+            }
+            
+            let alert = NSAlert()
+            
+            alert.messageText     = "No Apple Silicon Support"
+            alert.informativeText = "The application will be emulated on Apple Silicon hardware."
+            
+            alert.beginSheetModal( for: window, completionHandler: nil )
+            
+            return false
+        }
     }
     
     @IBAction public func reload( _ sender: Any? )

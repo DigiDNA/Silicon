@@ -18,6 +18,7 @@
 		0586D5762566B14200CBBD48 /* BinaryStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586D5752566B14200CBBD48 /* BinaryStream.swift */; };
 		0586D5792566B31A00CBBD48 /* MachOFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586D5782566B31A00CBBD48 /* MachOFile.swift */; };
 		0586D5922566C30600CBBD48 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 0586D5912566C30600CBBD48 /* Icon.icns */; };
+		0586D6212566CED200CBBD48 /* DropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586D6202566CED200CBBD48 /* DropView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		0586D61A2566C7E700CBBD48 /* ccache-config.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "ccache-config.sh"; sourceTree = "<group>"; };
 		0586D61B2566C7E700CBBD48 /* ccache.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ccache.sh; sourceTree = "<group>"; };
 		0586D61C2566C7E700CBBD48 /* Debug - zld.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug - zld.xcconfig"; sourceTree = "<group>"; };
+		0586D6202566CED200CBBD48 /* DropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				0586D55F256697A500CBBD48 /* MainWindowController.swift */,
 				0586D5722566A31200CBBD48 /* NumberToString.swift */,
 				0586D5782566B31A00CBBD48 /* MachOFile.swift */,
+				0586D6202566CED200CBBD48 /* DropView.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0586D5762566B14200CBBD48 /* BinaryStream.swift in Sources */,
+				0586D6212566CED200CBBD48 /* DropView.swift in Sources */,
 				0586D5792566B31A00CBBD48 /* MachOFile.swift in Sources */,
 				0586D5732566A31200CBBD48 /* NumberToString.swift in Sources */,
 				0586D54B256696D900CBBD48 /* ApplicationDelegate.swift in Sources */,
