@@ -29,6 +29,7 @@ public class MainWindowController: NSWindowController
     @objc public private( set ) dynamic var started        = false
     @objc public private( set ) dynamic var loading        = false
     @objc public private( set ) dynamic var empty          = false
+    @objc private               dynamic var stop           = false
     @objc public private( set ) dynamic var appsFolderOnly = true
     @objc public private( set ) dynamic var appCount       = UInt64( 0 )
     
@@ -100,6 +101,11 @@ public class MainWindowController: NSWindowController
         }
     }
     
+    public func stopLoading()
+    {
+        self.stop = true
+    }
+    
     @IBAction public func reload( _ sender: Any? )
     {
         if self.loading
@@ -142,6 +148,11 @@ public class MainWindowController: NSWindowController
         
         for e in enumerator
         {
+            if self.stop
+            {
+                return
+            }
+            
             guard var path = e as? String else
             {
                 continue
