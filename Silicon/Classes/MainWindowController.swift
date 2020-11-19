@@ -44,7 +44,7 @@ public class MainWindowController: NSWindowController
         super.windowDidLoad()
         
         self.arrayController.sortDescriptors = [
-            NSSortDescriptor( key: "name", ascending: true ),
+            NSSortDescriptor( key: "name", ascending: true, selector: #selector( NSString.localizedCaseInsensitiveCompare( _: ) ) ),
             NSSortDescriptor( key: "path", ascending: true )
         ]
         
