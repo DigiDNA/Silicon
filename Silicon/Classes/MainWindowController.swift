@@ -69,6 +69,7 @@ public class MainWindowController: NSWindowController
                 
                 alert.messageText     = "Not an Application"
                 alert.informativeText = "The file you dropped was not detected as a macOS application."
+                alert.alertStyle      = .critical
                 
                 alert.beginSheetModal( for: window, completionHandler: nil )
                 
@@ -91,6 +92,7 @@ public class MainWindowController: NSWindowController
             
             alert.messageText     = "No Apple Silicon Support"
             alert.informativeText = "The application will be emulated on Apple Silicon hardware."
+            alert.alertStyle      = .critical
             
             alert.beginSheetModal( for: window, completionHandler: nil )
             
