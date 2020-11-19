@@ -31,9 +31,25 @@ public class MainWindowController: NSWindowController
     @objc private               dynamic var stop           = false
     @objc public private( set ) dynamic var appsFolderOnly = true
     @objc public private( set ) dynamic var appCount       = UInt64( 0 )
+    @objc public private( set ) dynamic var intelOnly      = false
+    {
+        didSet
+        {
+            if self.intelOnly
+            {
+                self.archFilteredApps.filterPredicate = NSPredicate( format: "isAppleSiliconReady=NO" )
+            }
+            else
+            {
+                self.archFilteredApps.filterPredicate = nil
+            }
+        }
+    }
     
-    @IBOutlet public private( set ) dynamic var arrayController: NSArrayController!
-    @IBOutlet public private( set ) dynamic var dropView:        DropView!
+    @IBOutlet public private( set ) dynamic var allApps:          NSArrayController!
+    @IBOutlet public private( set ) dynamic var archFilteredApps: NSArrayController!
+    @IBOutlet public private( set ) dynamic var arrayController:  NSArrayController!
+    @IBOutlet public private( set ) dynamic var dropView:         DropView!
     
     public override var windowNibName: NSNib.Name?
     {
@@ -166,7 +182,7 @@ public class MainWindowController: NSWindowController
             {
                 DispatchQueue.main.async
                 {
-                    self.arrayController.addObject( app )
+                    self.allApps.addObject( app )
                     
                     self.appCount += 1
                 }
