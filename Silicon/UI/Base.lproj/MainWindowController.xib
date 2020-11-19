@@ -29,52 +29,84 @@
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="1Uf-5D-8gz">
                         <rect key="frame" x="0.0" y="0.0" width="800" height="500"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="ab6-bP-FgM">
-                                <rect key="frame" x="18" y="8" width="158" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="center" title="Discovering Applications" id="75x-lv-fyN">
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Zid-ed-p0B">
+                                <rect key="frame" x="287" y="8" width="226" height="16"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="ab6-bP-FgM">
+                                        <rect key="frame" x="-2" y="0.0" width="158" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="center" title="Discovering Applications" id="75x-lv-fyN">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <connections>
+                                            <binding destination="-2" name="hidden" keyPath="self.loading" id="4To-8T-cRB">
+                                                <dictionary key="options">
+                                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </textField>
+                                    <progressIndicator maxValue="100" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="U5b-ab-9UO">
+                                        <rect key="frame" x="162" y="0.0" width="16" height="16"/>
+                                        <connections>
+                                            <binding destination="-2" name="animate" keyPath="self.loading" id="Hnu-fq-KdU"/>
+                                            <binding destination="-2" name="hidden" keyPath="self.loading" id="buq-CT-DMZ">
+                                                <dictionary key="options">
+                                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </progressIndicator>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="bVA-jP-9JT">
+                                        <rect key="frame" x="184" y="0.0" width="44" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="center" title="Label" id="Gq8-U7-YhA">
+                                            <font key="font" metaFont="systemBold"/>
+                                            <color key="textColor" name="AccentColor"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <connections>
+                                            <binding destination="-2" name="value" keyPath="self.appCount" id="hSe-Vf-D7u">
+                                                <dictionary key="options">
+                                                    <string key="NSValueTransformerName">Silicon.NumberToString</string>
+                                                </dictionary>
+                                            </binding>
+                                            <binding destination="-2" name="hidden" keyPath="self.loading" id="U3M-c9-ddB">
+                                                <dictionary key="options">
+                                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="U5b-ab-9UO" firstAttribute="centerY" secondItem="ab6-bP-FgM" secondAttribute="centerY" id="4L1-0A-A93"/>
+                                    <constraint firstAttribute="trailing" secondItem="bVA-jP-9JT" secondAttribute="trailing" id="9Fh-5b-Q4M"/>
+                                    <constraint firstItem="ab6-bP-FgM" firstAttribute="leading" secondItem="Zid-ed-p0B" secondAttribute="leading" id="TPT-Kh-YdC"/>
+                                    <constraint firstItem="U5b-ab-9UO" firstAttribute="leading" secondItem="ab6-bP-FgM" secondAttribute="trailing" constant="8" symbolic="YES" id="UBC-M8-L7c"/>
+                                    <constraint firstAttribute="bottom" secondItem="ab6-bP-FgM" secondAttribute="bottom" id="Vay-Mv-dpG"/>
+                                    <constraint firstItem="bVA-jP-9JT" firstAttribute="centerY" secondItem="U5b-ab-9UO" secondAttribute="centerY" id="bsg-7u-oxo"/>
+                                    <constraint firstItem="bVA-jP-9JT" firstAttribute="leading" secondItem="U5b-ab-9UO" secondAttribute="trailing" constant="8" symbolic="YES" id="hBW-ue-IXp"/>
+                                    <constraint firstItem="ab6-bP-FgM" firstAttribute="top" secondItem="Zid-ed-p0B" secondAttribute="top" id="tyo-KY-OzF"/>
+                                </constraints>
+                            </customView>
+                            <searchField wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9W-UJ-kd7">
+                                <rect key="frame" x="8" y="5" width="784" height="22"/>
+                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="4sB-0c-0zN">
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
+                                </searchFieldCell>
                                 <connections>
-                                    <binding destination="-2" name="hidden" keyPath="self.loading" id="4To-8T-cRB">
+                                    <binding destination="-2" name="hidden" keyPath="self.loading" id="lCe-nI-ibk"/>
+                                    <binding destination="Qcp-da-Tnd" name="predicate" keyPath="filterPredicate" id="Iby-Ez-Sj1">
                                         <dictionary key="options">
-                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                            <string key="NSDisplayName">predicate</string>
+                                            <string key="NSPredicateFormat">name contains[c] $value</string>
                                         </dictionary>
                                     </binding>
                                 </connections>
-                            </textField>
-                            <progressIndicator maxValue="100" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="U5b-ab-9UO">
-                                <rect key="frame" x="182" y="8" width="16" height="16"/>
-                                <connections>
-                                    <binding destination="-2" name="animate" keyPath="self.loading" id="Hnu-fq-KdU"/>
-                                    <binding destination="-2" name="hidden" keyPath="self.loading" id="buq-CT-DMZ">
-                                        <dictionary key="options">
-                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                        </dictionary>
-                                    </binding>
-                                </connections>
-                            </progressIndicator>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="bVA-jP-9JT">
-                                <rect key="frame" x="204" y="8" width="44" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="center" title="Label" id="Gq8-U7-YhA">
-                                    <font key="font" metaFont="systemBold"/>
-                                    <color key="textColor" name="AccentColor"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                                <connections>
-                                    <binding destination="-2" name="value" keyPath="self.appCount" id="hSe-Vf-D7u">
-                                        <dictionary key="options">
-                                            <string key="NSValueTransformerName">Silicon.NumberToString</string>
-                                        </dictionary>
-                                    </binding>
-                                    <binding destination="-2" name="hidden" keyPath="self.loading" id="U3M-c9-ddB">
-                                        <dictionary key="options">
-                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                        </dictionary>
-                                    </binding>
-                                </connections>
-                            </textField>
+                            </searchField>
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="50" horizontalPageScroll="10" verticalLineScroll="50" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQk-Y6-9ZD">
                                 <rect key="frame" x="0.0" y="32" width="800" height="468"/>
                                 <clipView key="contentView" id="Efa-ON-acQ">
@@ -188,17 +220,17 @@
                             </scrollView>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="n9W-UJ-kd7" secondAttribute="trailing" constant="8" id="0jQ-bH-r53"/>
+                            <constraint firstItem="Zid-ed-p0B" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1Uf-5D-8gz" secondAttribute="leading" constant="8" id="4Kz-1n-wNg"/>
                             <constraint firstItem="JQk-Y6-9ZD" firstAttribute="top" secondItem="1Uf-5D-8gz" secondAttribute="top" id="6WW-yD-d3n"/>
-                            <constraint firstAttribute="bottom" secondItem="ab6-bP-FgM" secondAttribute="bottom" constant="8" id="Kcd-Bn-qzg"/>
+                            <constraint firstItem="n9W-UJ-kd7" firstAttribute="leading" secondItem="1Uf-5D-8gz" secondAttribute="leading" constant="8" id="GFW-mo-NN7"/>
                             <constraint firstItem="JQk-Y6-9ZD" firstAttribute="leading" secondItem="1Uf-5D-8gz" secondAttribute="leading" id="KjU-mV-mv9"/>
-                            <constraint firstItem="ab6-bP-FgM" firstAttribute="leading" secondItem="1Uf-5D-8gz" secondAttribute="leading" constant="20" symbolic="YES" id="RD4-8D-yrk"/>
-                            <constraint firstItem="U5b-ab-9UO" firstAttribute="centerY" secondItem="ab6-bP-FgM" secondAttribute="centerY" id="dTS-uF-GvI"/>
-                            <constraint firstItem="bVA-jP-9JT" firstAttribute="leading" secondItem="U5b-ab-9UO" secondAttribute="trailing" constant="8" symbolic="YES" id="mbG-dL-Tj6"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bVA-jP-9JT" secondAttribute="trailing" constant="20" symbolic="YES" id="ny1-Q9-KhQ"/>
+                            <constraint firstItem="Zid-ed-p0B" firstAttribute="centerX" secondItem="1Uf-5D-8gz" secondAttribute="centerX" id="dSF-UB-Rb6"/>
+                            <constraint firstAttribute="bottom" secondItem="n9W-UJ-kd7" secondAttribute="bottom" constant="5" id="gFZ-2a-zrZ"/>
+                            <constraint firstAttribute="bottom" secondItem="Zid-ed-p0B" secondAttribute="bottom" constant="8" id="hUy-fA-s5k"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Zid-ed-p0B" secondAttribute="trailing" constant="8" id="qfV-1a-xil"/>
                             <constraint firstAttribute="bottom" secondItem="JQk-Y6-9ZD" secondAttribute="bottom" constant="32" id="vdb-mE-skM"/>
                             <constraint firstAttribute="trailing" secondItem="JQk-Y6-9ZD" secondAttribute="trailing" id="wuF-kW-sUo"/>
-                            <constraint firstItem="bVA-jP-9JT" firstAttribute="centerY" secondItem="U5b-ab-9UO" secondAttribute="centerY" id="yib-KP-gED"/>
-                            <constraint firstItem="U5b-ab-9UO" firstAttribute="leading" secondItem="ab6-bP-FgM" secondAttribute="trailing" constant="8" symbolic="YES" id="zfg-uw-Yyz"/>
                         </constraints>
                         <connections>
                             <binding destination="-2" name="hidden2" keyPath="self.empty" previousBinding="cQi-ue-O7a" id="YjK-W0-geS">
