@@ -33,6 +33,8 @@ import Cocoa
     {
         self.mainWindowController.window?.center()
         self.mainWindowController.window?.makeKeyAndOrderFront( nil )
+        
+        NotificationCenter.default.addObserver( self, selector: #selector( windowWillClose( _: ) ), name: NSWindow.willCloseNotification, object: nil )
     }
     
     func applicationWillTerminate( _ notification: Notification )
@@ -46,5 +48,18 @@ import Cocoa
         }
         
         self.aboutWindowController.window?.makeKeyAndOrderFront( nil )
+    }
+    
+    @objc private func windowWillClose( _ notification: NSNotification )
+    {
+        guard let window = notification.object as? NSWindow else
+        {
+            return
+        }
+        
+        if window == self.mainWindowController.window
+        {
+            NSApp.terminate( nil )
+        }
     }
 }
