@@ -172,11 +172,6 @@ public class MainWindowController: NSWindowController
             
             if let app = App( path: path )
             {
-                if app.architectures.contains( "arm64" )
-                {
-                    continue
-                }
-                
                 DispatchQueue.main.async
                 {
                     self.arrayController.addObject( app )

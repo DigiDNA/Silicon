@@ -26,11 +26,13 @@ import Cocoa
 
 @objc public class App: NSObject
 {
-    @objc public private( set ) var name:          String
-    @objc public private( set ) var path:          String
-    @objc public private( set ) var version:       String?
-    @objc public private( set ) var icon:          NSImage?
-    @objc public private( set ) var architectures: [ String ]
+    @objc public private( set ) var name:                String
+    @objc public private( set ) var path:                String
+    @objc public private( set ) var version:             String?
+    @objc public private( set ) var icon:                NSImage?
+    @objc public private( set ) var architectures:       [ String ]
+    @objc public private( set ) var isAppleSiliconReady: Bool
+    @objc public private( set ) var architecture:        String
     
     public init?( path: String )
     {
@@ -58,6 +60,27 @@ import Cocoa
         }
         
         self.architectures = macho.architectures
+        
+        if macho.architectures.contains( "arm64" ) && macho.architectures.contains( "x86_64" )
+        {
+            self.isAppleSiliconReady = true
+            self.architecture        = "Universal"
+        }
+        else if self.architectures.contains( "arm64" )
+        {
+            self.isAppleSiliconReady = true
+            self.architecture        = "Apple"
+        }
+        else if self.architectures.contains( "x86_64" )
+        {
+            self.isAppleSiliconReady = false
+            self.architecture        = "Intel"
+        }
+        else
+        {
+            self.isAppleSiliconReady = false
+            self.architecture        = "Unknown"
+        }
     }
     
     @IBAction public func showInFinder( _ sender: Any? )
