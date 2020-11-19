@@ -152,7 +152,7 @@ DQ
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O9X-ed-fYv">
-                                                                            <rect key="frame" x="0.0" y="4" width="40" height="40"/>
+                                                                            <rect key="frame" x="10" y="4" width="40" height="40"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="40" id="KKV-BX-24I"/>
                                                                                 <constraint firstAttribute="width" constant="40" id="YKR-qd-5hs"/>
@@ -163,7 +163,7 @@ DQ
                                                                             </connections>
                                                                         </imageView>
                                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="u2a-PY-lkJ">
-                                                                            <rect key="frame" x="46" y="24" width="40" height="16"/>
+                                                                            <rect key="frame" x="56" y="24" width="40" height="16"/>
                                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="epZ-sc-Pcr">
                                                                                 <font key="font" metaFont="systemBold"/>
                                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -174,7 +174,7 @@ DQ
                                                                             </connections>
                                                                         </textField>
                                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="16Y-y2-Vqu">
-                                                                            <rect key="frame" x="46" y="8" width="33" height="14"/>
+                                                                            <rect key="frame" x="56" y="8" width="33" height="14"/>
                                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="pyS-Xj-FcN">
                                                                                 <font key="font" metaFont="smallSystem"/>
                                                                                 <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -242,7 +242,7 @@ DQ
                                                                     </subviews>
                                                                     <constraints>
                                                                         <constraint firstItem="f1M-Nu-Yqj" firstAttribute="centerY" secondItem="4OR-KC-VdA" secondAttribute="centerY" id="1DY-QY-1OY"/>
-                                                                        <constraint firstItem="O9X-ed-fYv" firstAttribute="leading" secondItem="kWl-yP-zvy" secondAttribute="leading" id="5hB-Ht-AKV"/>
+                                                                        <constraint firstItem="O9X-ed-fYv" firstAttribute="leading" secondItem="kWl-yP-zvy" secondAttribute="leading" constant="10" id="5hB-Ht-AKV"/>
                                                                         <constraint firstItem="u2a-PY-lkJ" firstAttribute="leading" secondItem="O9X-ed-fYv" secondAttribute="trailing" constant="8" symbolic="YES" id="AaC-WU-hJJ"/>
                                                                         <constraint firstItem="4OR-KC-VdA" firstAttribute="centerY" secondItem="GPh-5t-rfW" secondAttribute="centerY" id="Bv1-rF-zXF"/>
                                                                         <constraint firstItem="16Y-y2-Vqu" firstAttribute="leading" secondItem="u2a-PY-lkJ" secondAttribute="leading" id="Ctt-pP-LR8"/>
