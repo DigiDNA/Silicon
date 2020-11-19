@@ -33,7 +33,6 @@ import Cocoa
     {
         self.mainWindowController.window?.center()
         self.mainWindowController.window?.makeKeyAndOrderFront( nil )
-        self.mainWindowController.reload( nil )
     }
     
     func applicationWillTerminate( _ notification: Notification )

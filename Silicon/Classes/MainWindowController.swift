@@ -26,6 +26,7 @@ import Cocoa
 
 public class MainWindowController: NSWindowController
 {
+    @objc public private( set ) dynamic var started  = false
     @objc public private( set ) dynamic var loading  = false
     @objc public private( set ) dynamic var appCount = UInt64( 0 )
     
@@ -44,6 +45,8 @@ public class MainWindowController: NSWindowController
             NSSortDescriptor( key: "name", ascending: true ),
             NSSortDescriptor( key: "path", ascending: true )
         ]
+        
+        self.window?.setContentBorderThickness( 0, for: .minY )
     }
     
     @IBAction public func reload( _ sender: Any? )
@@ -53,6 +56,9 @@ public class MainWindowController: NSWindowController
             return
         }
         
+        self.window?.setContentBorderThickness( 32, for: .minY )
+        
+        self.started  = true
         self.loading  = true
         self.appCount = 0
         
