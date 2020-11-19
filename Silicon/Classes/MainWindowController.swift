@@ -28,7 +28,6 @@ public class MainWindowController: NSWindowController
 {
     @objc public private( set ) dynamic var started        = false
     @objc public private( set ) dynamic var loading        = false
-    @objc public private( set ) dynamic var empty          = false
     @objc private               dynamic var stop           = false
     @objc public private( set ) dynamic var appsFolderOnly = true
     @objc public private( set ) dynamic var appCount       = UInt64( 0 )
@@ -126,13 +125,6 @@ public class MainWindowController: NSWindowController
             DispatchQueue.main.async
             {
                 self.loading = false
-                
-                if self.appCount == 0
-                {
-                    self.window?.setContentBorderThickness( 0, for: .minY )
-                    
-                    self.empty = true
-                }
             }
         }
     }
