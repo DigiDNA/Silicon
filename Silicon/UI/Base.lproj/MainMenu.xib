@@ -12,7 +12,11 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customObject id="Voe-Tx-rLC" customClass="ApplicationDelegate" customModule="Silicon" customModuleProvider="target"/>
+        <customObject id="Voe-Tx-rLC" customClass="ApplicationDelegate" customModule="Silicon" customModuleProvider="target">
+            <connections>
+                <outlet property="updater" destination="PQE-ak-zI1" id="aeN-gI-Edh"/>
+            </connections>
+        </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
@@ -28,6 +32,12 @@
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
                             <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                            <menuItem title="Check for Updates..." id="d9E-Fi-myF">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="checkForUpdates:" target="Voe-Tx-rLC" id="l6Q-zc-aD9"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                             <menuItem title="Services" id="NMo-om-nkz">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -682,5 +692,11 @@
             </items>
             <point key="canvasLocation" x="-180" y="154"/>
         </menu>
+        <customObject id="PQE-ak-zI1" customClass="GitHubUpdater">
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="user" value="DigiDNA"/>
+                <userDefinedRuntimeAttribute type="string" keyPath="repository" value="Silicon-Releases"/>
+            </userDefinedRuntimeAttributes>
+        </customObject>
     </objects>
 </document>
