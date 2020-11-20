@@ -130,6 +130,8 @@ public class MainWindowController: NSWindowController
     {
         if self.loading
         {
+            NSSound.beep()
+            
             return
         }
         
@@ -138,6 +140,8 @@ public class MainWindowController: NSWindowController
         self.started  = true
         self.loading  = true
         self.appCount = 0
+        
+        self.allApps.remove( contentsOf: self.allApps.content as? [ Any ] ?? [] )
         
         DispatchQueue.global( qos: .userInitiated ).async
         {
