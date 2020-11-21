@@ -4,9 +4,9 @@ Silicon-Releases
 About
 -----
 
-Identify Intel-Only Apps on your Mac:
+Identify Intel-Only Apps on your Mac with ease:
 
-![Silicon](Screen.png "Silicon")
+![Silicon](Assets/Screen.png "Silicon")
 
 License
 -------
