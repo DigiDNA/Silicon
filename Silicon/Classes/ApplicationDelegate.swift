@@ -53,6 +53,7 @@ import GitHubUpdates
     {
         if self.aboutWindowController.window?.isVisible ?? false == false
         {
+            self.aboutWindowController.window?.layoutIfNeeded()
             self.aboutWindowController.window?.center()
         }
         
