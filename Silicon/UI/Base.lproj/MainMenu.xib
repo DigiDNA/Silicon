@@ -695,7 +695,7 @@
         <customObject id="PQE-ak-zI1" customClass="GitHubUpdater">
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="string" keyPath="user" value="DigiDNA"/>
-                <userDefinedRuntimeAttribute type="string" keyPath="repository" value="Silicon-Releases"/>
+                <userDefinedRuntimeAttribute type="string" keyPath="repository" value="Silicon"/>
             </userDefinedRuntimeAttributes>
         </customObject>
     </objects>
