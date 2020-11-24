@@ -103,6 +103,10 @@ public class MachOFile
         {
             return "arm64"
         }
+        else if type == 18
+        {
+            return "ppc"
+        }
         
         return "<unknown>"
     }

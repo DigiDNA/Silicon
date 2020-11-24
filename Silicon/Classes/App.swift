@@ -67,35 +67,66 @@ import Cocoa
         
         self.architectures = macho.architectures
         
-        if macho.architectures.contains( "arm64" ) && ( macho.architectures.contains( "x86_64" ) || macho.architectures.contains( "i386" ) )
+        if( macho.architectures.count == 1 )
         {
-            self.isAppleSiliconReady = true
-            self.architecture        = "Universal"
-        }
-        else if macho.architectures.contains( "arm64" )
-        {
-            self.isAppleSiliconReady = true
-            self.architecture        = "Apple"
-        }
-        else if macho.architectures.contains( "x86_64" ) && macho.architectures.count == 1
-        {
-            self.isAppleSiliconReady = false
-            self.architecture        = "Intel 64"
-        }
-        else if macho.architectures.contains( "i386" ) && macho.architectures.count == 1
-        {
-            self.isAppleSiliconReady = false
-            self.architecture        = "Intel 32"
-        }
-        else if macho.architectures.contains( "x86_64" ) && macho.architectures.contains( "i386" )
-        {
-            self.isAppleSiliconReady = false
-            self.architecture        = "Intel 32/64"
+            if( macho.architectures.contains( "arm64" ) )
+            {
+                self.isAppleSiliconReady = true
+                self.architecture        = "Apple"
+            }
+            else if( macho.architectures.contains( "x86_64" ) )
+            {
+                self.isAppleSiliconReady = false
+                self.architecture        = "Intel 64"
+            }
+            else if( macho.architectures.contains( "i386" ) )
+            {
+                self.isAppleSiliconReady = false
+                self.architecture        = "Intel 32"
+            }
+            else if( macho.architectures.contains( "ppc" ) )
+            {
+                self.isAppleSiliconReady = false
+                self.architecture        = "PowerPC"
+            }
+            else
+            {
+                self.isAppleSiliconReady = false
+                self.architecture        = "Unknown"
+            }
         }
         else
         {
-            self.isAppleSiliconReady = false
-            self.architecture        = "Unknown"
+            if( macho.architectures.contains( "arm64" ) )
+            {
+                self.isAppleSiliconReady = true
+                self.architecture        = "Universal"
+            }
+            else if( macho.architectures.contains( "ppc" ) && macho.architectures.contains( "i386" ) && macho.architectures.contains( "x86_64" ) )
+            {
+                self.isAppleSiliconReady = false
+                self.architecture        = "PowerPC/Intel 32/64"
+            }
+            else if( macho.architectures.contains( "ppc" ) && macho.architectures.contains( "x86_64" ) )
+            {
+                self.isAppleSiliconReady = false
+                self.architecture        = "PowerPC/Intel 64"
+            }
+            else if( macho.architectures.contains( "ppc" ) && macho.architectures.contains( "i386" ) )
+            {
+                self.isAppleSiliconReady = false
+                self.architecture        = "PowerPC/Intel 32"
+            }
+            else if( macho.architectures.contains( "i386" ) && macho.architectures.contains( "x86_64" ) )
+            {
+                self.isAppleSiliconReady = false
+                self.architecture        = "Intel 32/64"
+            }
+            else
+            {
+                self.isAppleSiliconReady = false
+                self.architecture        = "Unknown"
+            }
         }
     }
     
