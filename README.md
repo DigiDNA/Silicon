@@ -1,5 +1,5 @@
-Silicon-Releases
-================
+Silicon
+=======
 
 About
 -----
