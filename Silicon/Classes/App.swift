@@ -44,31 +44,39 @@ import Cocoa
             return nil
         }
         
-        self.name = FileManager.default.displayName( atPath: path )
-        self.path = path
-        self.icon = NSWorkspace.shared.icon( forFile: path )
+        let plist = "\( path )/Contents/Info.plist"
         
-        if self.name.hasSuffix( ".app" )
-        {
-            self.name = ( self.name as NSString ).deletingPathExtension
-        }
-        
-        let name   = ( ( path as NSString ).lastPathComponent as NSString ).deletingPathExtension
-        let binary = "\( path )/Contents/MacOS/\( name )"
-        let plist  = "\( path )/Contents/Info.plist"
-        
-        if FileManager.default.fileExists( atPath: binary ) == false
+        if FileManager.default.fileExists( atPath: plist ) == false
         {
             return nil
         }
         
-        if FileManager.default.fileExists( atPath: plist )
+        guard let data = FileManager.default.contents( atPath: plist ),
+              let info = try? PropertyListSerialization.propertyList( from: data, options: [], format: nil ) as? [ String : Any ]
+        else
         {
-            if let data = FileManager.default.contents( atPath: plist ),
-               let info = try? PropertyListSerialization.propertyList( from: data, options: [], format: nil ) as? [ String : Any ]
+            return nil
+        }
+        
+        guard let exec: String =
+        {
+            if let e = info[ "CFBundleExecutable" ] as? String, e != "WRAPPEDPRODUCTNAME"
             {
-                self.bundleID = info[ "CFBundleIdentifier" ] as? String
+                return e
             }
+            
+            return ( ( path as NSString ).lastPathComponent as NSString ).deletingPathExtension
+        }()
+        else
+        {
+            return nil
+        }
+        
+        let binary = "\( path )/Contents/MacOS/\( exec )"
+        
+        if FileManager.default.fileExists( atPath: binary ) == false
+        {
+            return nil
         }
         
         guard let macho = MachOFile( path: binary ) else
@@ -76,6 +84,10 @@ import Cocoa
             return nil
         }
         
+        self.bundleID      = info[ "CFBundleIdentifier" ] as? String
+        self.name          = FileManager.default.displayName( atPath: path )
+        self.path          = path
+        self.icon          = NSWorkspace.shared.icon( forFile: path )
         self.architectures = macho.architectures
         
         if( macho.architectures.count == 1 )
