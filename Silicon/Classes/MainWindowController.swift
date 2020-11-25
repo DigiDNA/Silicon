@@ -191,48 +191,61 @@ public class MainWindowController: NSWindowController
             return
         }
         
-        for e in enumerator
+        var e = enumerator.nextObject()
+        
+        while e != nil
         {
             if self.stop
             {
                 return
             }
             
-            guard var path = e as? String else
+            autoreleasepool
             {
-                continue
-            }
-            
-            path = ( directory as NSString ).appendingPathComponent( path )
-            
-            if path.hasPrefix( "/Volumes" )
-            {
-                continue
-            }
-            
-            if path.hasSuffix( ".app" ) == false
-            {
-                continue
-            }
-            
-            if self.recurseIntoApps == false
-            {
-                enumerator.skipDescendents()
-            }
-            
-            if let app = App( path: path )
-            {
-                DispatchQueue.main.async
+                guard var path = e as? String else
                 {
-                    if self.excludeAppleApps && ( app.bundleID?.starts( with: "com.apple." ) ?? false  )
-                    {
-                        return
-                    }
+                    e = enumerator.nextObject()
                     
-                    self.allApps.addObject( app )
-                    
-                    self.appCount += 1
+                    return
                 }
+                
+                path = ( directory as NSString ).appendingPathComponent( path )
+                
+                if path.hasPrefix( "/Volumes" )
+                {
+                    e = enumerator.nextObject()
+                    
+                    return
+                }
+                
+                if path.hasSuffix( ".app" ) == false
+                {
+                    e = enumerator.nextObject()
+                    
+                    return
+                }
+                
+                if self.recurseIntoApps == false
+                {
+                    enumerator.skipDescendents()
+                }
+                
+                if let app = App( path: path )
+                {
+                    DispatchQueue.main.async
+                    {
+                        if self.excludeAppleApps && ( app.bundleID?.starts( with: "com.apple." ) ?? false  )
+                        {
+                            return
+                        }
+                        
+                        self.allApps.addObject( app )
+                        
+                        self.appCount += 1
+                    }
+                }
+                
+                e = enumerator.nextObject()
             }
         }
     }
