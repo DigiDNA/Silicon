@@ -168,9 +168,24 @@ public class MainWindowController: NSWindowController
     
     private func findApps()
     {
-        let root = self.appsFolderOnly ? "/Applications" : "/"
-        
-        guard let enumerator = FileManager.default.enumerator( atPath: root ) else
+        if self.appsFolderOnly
+        {
+            let paths = NSSearchPathForDirectoriesInDomains( .applicationDirectory, .allDomainsMask, true )
+            
+            for path in paths
+            {
+                self.findApps( in: path )
+            }
+        }
+        else
+        {
+            self.findApps( in: "/" )
+        }
+    }
+    
+    private func findApps( in directory: String )
+    {
+        guard let enumerator = FileManager.default.enumerator( atPath: directory ) else
         {
             return
         }
@@ -187,7 +202,7 @@ public class MainWindowController: NSWindowController
                 continue
             }
             
-            path = "\( root )/\( path )"
+            path = ( directory as NSString ).appendingPathComponent( path )
             
             if path.hasPrefix( "/Volumes" )
             {
