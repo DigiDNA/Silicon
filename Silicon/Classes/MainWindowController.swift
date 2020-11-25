@@ -168,8 +168,20 @@ public class MainWindowController: NSWindowController
     
     private func findApps()
     {
-        let root = self.appsFolderOnly ? "/Applications" : "/"
-        
+        if self.appsFolderOnly
+        {
+            self.findApps(atPath: "/Applications")
+            self.findApps(atPath: "~/Applications")
+        }
+        else
+        {
+            self.findApps(atPath: "/")
+        }
+    }
+    
+    private func findApps(atPath root: String)
+    {
+        let root = NSString(string: root).expandingTildeInPath
         guard let enumerator = FileManager.default.enumerator( atPath: root ) else
         {
             return
