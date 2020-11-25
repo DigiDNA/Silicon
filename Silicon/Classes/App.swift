@@ -33,6 +33,7 @@ import Cocoa
     @objc public private( set ) var architectures:       [ String ]
     @objc public private( set ) var isAppleSiliconReady: Bool
     @objc public private( set ) var architecture:        String
+    @objc public private( set ) var bundleID:            String?
     
     public init?( path: String )
     {
@@ -54,10 +55,20 @@ import Cocoa
         
         let name   = ( ( path as NSString ).lastPathComponent as NSString ).deletingPathExtension
         let binary = "\( path )/Contents/MacOS/\( name )"
+        let plist  = "\( path )/Contents/Info.plist"
         
         if FileManager.default.fileExists( atPath: binary ) == false
         {
             return nil
+        }
+        
+        if FileManager.default.fileExists( atPath: plist )
+        {
+            if let data = FileManager.default.contents( atPath: plist ),
+               let info = try? PropertyListSerialization.propertyList( from: data, options: [], format: nil ) as? [ String : Any ]
+            {
+                self.bundleID = info[ "CFBundleIdentifier" ] as? String
+            }
         }
         
         guard let macho = MachOFile( path: binary ) else

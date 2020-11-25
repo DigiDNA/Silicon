@@ -26,13 +26,14 @@ import Cocoa
 
 public class MainWindowController: NSWindowController
 {
-    @objc public private( set ) dynamic var started         = false
-    @objc public private( set ) dynamic var loading         = false
-    @objc private               dynamic var stop            = false
-    @objc public private( set ) dynamic var appsFolderOnly  = true
-    @objc public private( set ) dynamic var recurseIntoApps = false
-    @objc public private( set ) dynamic var appCount        = UInt64( 0 )
-    @objc public private( set ) dynamic var archFilter      = 0
+    @objc public private( set ) dynamic var started          = false
+    @objc public private( set ) dynamic var loading          = false
+    @objc private               dynamic var stop             = false
+    @objc public private( set ) dynamic var appsFolderOnly   = true
+    @objc public private( set ) dynamic var recurseIntoApps  = false
+    @objc public private( set ) dynamic var excludeAppleApps = false
+    @objc public private( set ) dynamic var appCount         = UInt64( 0 )
+    @objc public private( set ) dynamic var archFilter       = 0
     {
         didSet
         {
@@ -223,6 +224,11 @@ public class MainWindowController: NSWindowController
             {
                 DispatchQueue.main.async
                 {
+                    if self.excludeAppleApps && ( app.bundleID?.starts( with: "com.apple." ) ?? false  )
+                    {
+                        return
+                    }
+                    
                     self.allApps.addObject( app )
                     
                     self.appCount += 1
