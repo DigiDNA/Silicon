@@ -127,6 +127,40 @@ public class MainWindowController: NSWindowController
         self.stop = true
     }
     
+    @IBAction public func newDocument( _ sender: Any? )
+    {
+        let reset =
+        {
+            self.appCount   = 0
+            self.archFilter = 0
+            self.loading    = false
+            self.stop       = false
+            self.started    = false
+        }
+        
+        if self.loading
+        {
+            self.stop = true
+            
+            DispatchQueue.global( qos: .userInitiated ).async
+            {
+                while self.loading
+                {
+                    Thread.sleep( forTimeInterval: 0.1 )
+                }
+                
+                DispatchQueue.main.async
+                {
+                    reset()
+                }
+            }
+        }
+        else
+        {
+            reset()
+        }
+    }
+    
     @IBAction public func reload( _ sender: Any? )
     {
         if self.loading

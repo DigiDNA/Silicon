@@ -97,9 +97,9 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Refresh" keyEquivalent="r" id="IFW-r0-xjO">
+                            <menuItem title="Refresh" keyEquivalent="r" id="FbT-YU-ct9">
                                 <connections>
-                                    <action selector="reload:" target="-1" id="Gfd-QH-yrQ"/>
+                                    <action selector="reload:" target="-1" id="Ld4-Cf-kua"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
