@@ -29,93 +29,6 @@
                     <visualEffectView blendingMode="behindWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="mjv-5n-ZaS">
                         <rect key="frame" x="0.0" y="0.0" width="800" height="528"/>
                         <subviews>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="YHH-4l-Q5Y" customClass="DropView" customModule="Silicon" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="800" height="528"/>
-                                <subviews>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Vg5-OF-lwM">
-                                        <rect key="frame" x="223" y="440" width="355" height="26"/>
-                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="center" title="Identify Intel-Only Apps on your Mac" id="DFM-dV-koX">
-                                            <font key="font" textStyle="title1" name=".SFNS-Regular"/>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
-                                    <imageView wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8gx-Ax-TYI">
-                                        <rect key="frame" x="272" y="176" width="256" height="256"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="256" id="UxS-Pb-2vq"/>
-                                            <constraint firstAttribute="height" constant="256" id="bxF-nn-8g0"/>
-                                        </constraints>
-                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSApplicationIcon" id="aJQ-fi-Kpb"/>
-                                    </imageView>
-                                    <button wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HSf-FE-jD5">
-                                        <rect key="frame" x="338" y="129" width="124" height="32"/>
-                                        <buttonCell key="cell" type="push" title="Start Scanning" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MEb-Ef-ukk">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                            <string key="keyEquivalent" base64-UTF8="YES">
-DQ
-</string>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="reload:" target="-2" id="wxy-jM-fA3"/>
-                                        </connections>
-                                    </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Laz-gS-Jtn">
-                                        <rect key="frame" x="284" y="99" width="231" height="18"/>
-                                        <buttonCell key="cell" type="check" title="Only Scan the Applications Folder" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="b2W-HI-GII">
-                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <binding destination="-2" name="value" keyPath="self.appsFolderOnly" id="Tbg-LJ-EeI"/>
-                                        </connections>
-                                    </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RRR-tk-Ffc">
-                                        <rect key="frame" x="309" y="77" width="180" height="18"/>
-                                        <buttonCell key="cell" type="check" title="Recurse into Applications" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="d0l-gf-yml">
-                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <binding destination="-2" name="value" keyPath="self.recurseIntoApps" id="OKL-U9-Opl"/>
-                                        </connections>
-                                    </button>
-                                    <textField wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uRG-jg-19y">
-                                        <rect key="frame" x="251" y="42" width="299" height="16"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="You can also drop an application here to verify it." id="9uz-mz-Can">
-                                            <font key="font" metaFont="system"/>
-                                            <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="uRG-jg-19y" firstAttribute="centerX" secondItem="RRR-tk-Ffc" secondAttribute="centerX" id="0u8-Xh-sO8"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Vg5-OF-lwM" secondAttribute="trailing" constant="20" id="6Mo-DN-Fgy"/>
-                                    <constraint firstItem="8gx-Ax-TYI" firstAttribute="centerY" secondItem="YHH-4l-Q5Y" secondAttribute="centerY" constant="-40" id="8DV-fL-Qzj"/>
-                                    <constraint firstItem="8gx-Ax-TYI" firstAttribute="centerX" secondItem="YHH-4l-Q5Y" secondAttribute="centerX" id="95y-7F-A4w"/>
-                                    <constraint firstItem="uRG-jg-19y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YHH-4l-Q5Y" secondAttribute="leading" constant="20" id="BID-qa-Dqz"/>
-                                    <constraint firstItem="Laz-gS-Jtn" firstAttribute="centerX" secondItem="HSf-FE-jD5" secondAttribute="centerX" id="Eyw-FU-zaO"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HSf-FE-jD5" secondAttribute="trailing" constant="20" id="Grs-BI-HmM"/>
-                                    <constraint firstItem="HSf-FE-jD5" firstAttribute="top" secondItem="8gx-Ax-TYI" secondAttribute="bottom" constant="20" symbolic="YES" id="Nvj-78-is0"/>
-                                    <constraint firstItem="Vg5-OF-lwM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YHH-4l-Q5Y" secondAttribute="leading" constant="20" id="Pt1-7W-jre"/>
-                                    <constraint firstItem="RRR-tk-Ffc" firstAttribute="centerX" secondItem="Laz-gS-Jtn" secondAttribute="centerX" id="QrR-5I-DhB"/>
-                                    <constraint firstItem="Vg5-OF-lwM" firstAttribute="centerX" secondItem="8gx-Ax-TYI" secondAttribute="centerX" id="RsM-jW-Tnw"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Laz-gS-Jtn" secondAttribute="trailing" constant="20" id="Ssa-sg-dMi"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uRG-jg-19y" secondAttribute="trailing" constant="20" id="dYm-VZ-ygw"/>
-                                    <constraint firstItem="8gx-Ax-TYI" firstAttribute="top" secondItem="Vg5-OF-lwM" secondAttribute="bottom" constant="8" symbolic="YES" id="iW8-wl-Lgs"/>
-                                    <constraint firstItem="Laz-gS-Jtn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YHH-4l-Q5Y" secondAttribute="leading" constant="20" id="iig-0U-bUw"/>
-                                    <constraint firstItem="uRG-jg-19y" firstAttribute="top" secondItem="RRR-tk-Ffc" secondAttribute="bottom" constant="20" id="jT0-tv-sQV"/>
-                                    <constraint firstItem="HSf-FE-jD5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YHH-4l-Q5Y" secondAttribute="leading" constant="20" id="k6C-us-glF"/>
-                                    <constraint firstItem="Laz-gS-Jtn" firstAttribute="top" secondItem="HSf-FE-jD5" secondAttribute="bottom" constant="20" symbolic="YES" id="l4W-l0-3QF"/>
-                                    <constraint firstItem="HSf-FE-jD5" firstAttribute="centerX" secondItem="8gx-Ax-TYI" secondAttribute="centerX" id="qRS-IQ-MkI"/>
-                                    <constraint firstItem="RRR-tk-Ffc" firstAttribute="top" secondItem="Laz-gS-Jtn" secondAttribute="bottom" constant="6" symbolic="YES" id="ziV-qN-OFM"/>
-                                </constraints>
-                                <connections>
-                                    <binding destination="-2" name="hidden" keyPath="self.started" id="Dyv-fm-cNV"/>
-                                </connections>
-                            </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="1Uf-5D-8gz">
                                 <rect key="frame" x="0.0" y="0.0" width="800" height="528"/>
                                 <subviews>
@@ -382,6 +295,107 @@ DQ
                                             <string key="NSValueTransformerName">NSNegateBoolean</string>
                                         </dictionary>
                                     </binding>
+                                </connections>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="YHH-4l-Q5Y" customClass="DropView" customModule="Silicon" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="800" height="528"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Vg5-OF-lwM">
+                                        <rect key="frame" x="223" y="460" width="355" height="26"/>
+                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="center" title="Identify Intel-Only Apps on your Mac" id="DFM-dV-koX">
+                                            <font key="font" textStyle="title1" name=".SFNS-Regular"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <imageView wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8gx-Ax-TYI">
+                                        <rect key="frame" x="272" y="196" width="256" height="256"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="256" id="UxS-Pb-2vq"/>
+                                            <constraint firstAttribute="height" constant="256" id="bxF-nn-8g0"/>
+                                        </constraints>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSApplicationIcon" id="aJQ-fi-Kpb"/>
+                                    </imageView>
+                                    <button wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HSf-FE-jD5">
+                                        <rect key="frame" x="338" y="149" width="124" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Start Scanning" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MEb-Ef-ukk">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="reload:" target="-2" id="wxy-jM-fA3"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Laz-gS-Jtn">
+                                        <rect key="frame" x="284" y="119" width="231" height="18"/>
+                                        <buttonCell key="cell" type="check" title="Only Scan the Applications Folder" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="b2W-HI-GII">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <binding destination="-2" name="value" keyPath="self.appsFolderOnly" id="Tbg-LJ-EeI"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RRR-tk-Ffc">
+                                        <rect key="frame" x="304" y="97" width="191" height="18"/>
+                                        <buttonCell key="cell" type="check" title="Exclude Apple Applications" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="d0l-gf-yml">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <binding destination="-2" name="value" keyPath="self.excludeAppleApps" id="Gza-6O-3DD"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g13-We-r41">
+                                        <rect key="frame" x="309" y="75" width="180" height="18"/>
+                                        <buttonCell key="cell" type="check" title="Recurse into Applications" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="HUW-pw-w0O">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <binding destination="-2" name="value" keyPath="self.recurseIntoApps" id="VEQ-9U-baZ"/>
+                                        </connections>
+                                    </button>
+                                    <textField wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uRG-jg-19y">
+                                        <rect key="frame" x="251" y="40" width="299" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="You can also drop an application here to verify it." id="9uz-mz-Can">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="uRG-jg-19y" firstAttribute="top" secondItem="g13-We-r41" secondAttribute="bottom" constant="20" id="2kg-Md-JVk"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="uRG-jg-19y" secondAttribute="bottom" constant="40" id="2yB-wL-BTi"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Vg5-OF-lwM" secondAttribute="trailing" constant="20" id="6Mo-DN-Fgy"/>
+                                    <constraint firstItem="8gx-Ax-TYI" firstAttribute="centerY" secondItem="YHH-4l-Q5Y" secondAttribute="centerY" constant="-60" id="8DV-fL-Qzj"/>
+                                    <constraint firstItem="8gx-Ax-TYI" firstAttribute="centerX" secondItem="YHH-4l-Q5Y" secondAttribute="centerX" id="95y-7F-A4w"/>
+                                    <constraint firstItem="uRG-jg-19y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YHH-4l-Q5Y" secondAttribute="leading" constant="20" id="BID-qa-Dqz"/>
+                                    <constraint firstItem="Laz-gS-Jtn" firstAttribute="centerX" secondItem="HSf-FE-jD5" secondAttribute="centerX" id="Eyw-FU-zaO"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HSf-FE-jD5" secondAttribute="trailing" constant="20" id="Grs-BI-HmM"/>
+                                    <constraint firstItem="HSf-FE-jD5" firstAttribute="top" secondItem="8gx-Ax-TYI" secondAttribute="bottom" constant="20" symbolic="YES" id="Nvj-78-is0"/>
+                                    <constraint firstItem="Vg5-OF-lwM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YHH-4l-Q5Y" secondAttribute="leading" constant="20" id="Pt1-7W-jre"/>
+                                    <constraint firstItem="g13-We-r41" firstAttribute="top" secondItem="RRR-tk-Ffc" secondAttribute="bottom" constant="6" symbolic="YES" id="Qak-kC-rK5"/>
+                                    <constraint firstItem="RRR-tk-Ffc" firstAttribute="centerX" secondItem="Laz-gS-Jtn" secondAttribute="centerX" id="QrR-5I-DhB"/>
+                                    <constraint firstItem="g13-We-r41" firstAttribute="centerX" secondItem="RRR-tk-Ffc" secondAttribute="centerX" id="Rlf-zY-n2e"/>
+                                    <constraint firstItem="Vg5-OF-lwM" firstAttribute="centerX" secondItem="8gx-Ax-TYI" secondAttribute="centerX" id="RsM-jW-Tnw"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Laz-gS-Jtn" secondAttribute="trailing" constant="20" id="Ssa-sg-dMi"/>
+                                    <constraint firstItem="Vg5-OF-lwM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="YHH-4l-Q5Y" secondAttribute="top" constant="40" id="VMe-r5-K7R"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uRG-jg-19y" secondAttribute="trailing" constant="20" id="dYm-VZ-ygw"/>
+                                    <constraint firstItem="8gx-Ax-TYI" firstAttribute="top" secondItem="Vg5-OF-lwM" secondAttribute="bottom" constant="8" symbolic="YES" id="iW8-wl-Lgs"/>
+                                    <constraint firstItem="Laz-gS-Jtn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YHH-4l-Q5Y" secondAttribute="leading" constant="20" id="iig-0U-bUw"/>
+                                    <constraint firstItem="HSf-FE-jD5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YHH-4l-Q5Y" secondAttribute="leading" constant="20" id="k6C-us-glF"/>
+                                    <constraint firstItem="Laz-gS-Jtn" firstAttribute="top" secondItem="HSf-FE-jD5" secondAttribute="bottom" constant="20" symbolic="YES" id="l4W-l0-3QF"/>
+                                    <constraint firstItem="HSf-FE-jD5" firstAttribute="centerX" secondItem="8gx-Ax-TYI" secondAttribute="centerX" id="qRS-IQ-MkI"/>
+                                    <constraint firstItem="g13-We-r41" firstAttribute="centerX" secondItem="uRG-jg-19y" secondAttribute="centerX" id="yWQ-zQ-rat"/>
+                                    <constraint firstItem="RRR-tk-Ffc" firstAttribute="top" secondItem="Laz-gS-Jtn" secondAttribute="bottom" constant="6" symbolic="YES" id="ziV-qN-OFM"/>
+                                </constraints>
+                                <connections>
+                                    <binding destination="-2" name="hidden" keyPath="self.started" id="Dyv-fm-cNV"/>
                                 </connections>
                             </customView>
                         </subviews>
