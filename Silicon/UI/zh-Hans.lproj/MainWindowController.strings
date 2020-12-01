@@ -1,0 +1,36 @@
+
+/* Class = "NSWindow"; title = "Silicon"; ObjectID = "4ss-uf-DBv"; */
+"4ss-uf-DBv.title" = "Silicon";
+
+/* Class = "NSTextFieldCell"; title = "You can also drop an application here to verify it."; ObjectID = "9uz-mz-Can"; */
+"9uz-mz-Can.title" = "您也可以将应用程序放在此处进行验证.";
+
+/* Class = "NSTextFieldCell"; title = "Identify Intel-Only Apps on your Mac"; ObjectID = "DFM-dV-koX"; */
+"DFM-dV-koX.title" = "在您的Mac电脑上识别intel专用的应用程序";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Reveal in Finder"; ObjectID = "GPh-5t-rfW"; */
+"GPh-5t-rfW.ibShadowedToolTip" = "在Finder中显示";
+
+/* Class = "NSButtonCell"; title = "Recurse into Applications"; ObjectID = "HUW-pw-w0O"; */
+"HUW-pw-w0O.title" = "包含应用程序子目录";
+
+/* Class = "NSButtonCell"; title = "Start Scanning"; ObjectID = "MEb-Ef-ukk"; */
+"MEb-Ef-ukk.title" = "开始扫描";
+
+/* Class = "NSTextFieldCell"; title = "Applications Found:"; ObjectID = "MJD-Yn-xAC"; */
+"MJD-Yn-xAC.title" = "找到的应用程序：";
+
+/* Class = "NSMenuItem"; title = "Show All Apps"; ObjectID = "QoR-x6-4UR"; */
+"QoR-x6-4UR.title" = "显示所有应用";
+
+/* Class = "NSButtonCell"; title = "Only Scan the Applications Folder"; ObjectID = "b2W-HI-GII"; */
+"b2W-HI-GII.title" = "仅扫描应用程序文件夹";
+
+/* Class = "NSButtonCell"; title = "Exclude Apple Applications"; ObjectID = "d0l-gf-yml"; */
+"d0l-gf-yml.title" = "排除Apple应用程序";
+
+/* Class = "NSMenuItem"; title = "Show Apple SIlicon Compatible Apps"; ObjectID = "uJw-yo-gLb"; */
+"uJw-yo-gLb.title" = "显示Apple SIlicon兼容的应用程序";
+
+/* Class = "NSMenuItem"; title = "Show Intel-Only Apps"; ObjectID = "ux4-9b-ut4"; */
+"ux4-9b-ut4.title" = "仅显示Intel应用程序";
