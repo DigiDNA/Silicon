@@ -98,7 +98,7 @@ public class MainWindowController: NSWindowController
                 return true
             }
             
-            if app.architectures.contains( "arm64" )
+            if app.isAppleSiliconReady
             {
                 let alert = NSAlert()
                 

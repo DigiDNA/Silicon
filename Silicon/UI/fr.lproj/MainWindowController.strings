@@ -1,0 +1,36 @@
+
+/* Class = "NSWindow"; title = "Silicon"; ObjectID = "4ss-uf-DBv"; */
+"4ss-uf-DBv.title" = "Silicon";
+
+/* Class = "NSTextFieldCell"; title = "You can also drop an application here to verify it."; ObjectID = "9uz-mz-Can"; */
+"9uz-mz-Can.title" = "Vous pouvez aussi déposer ici une application pour la vérifier.";
+
+/* Class = "NSTextFieldCell"; title = "Identify Intel-Only Apps on your Mac"; ObjectID = "DFM-dV-koX"; */
+"DFM-dV-koX.title" = "Identifier les Apps Seulement Intel de votre Mac";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Reveal in Finder"; ObjectID = "GPh-5t-rfW"; */
+"GPh-5t-rfW.ibShadowedToolTip" = "Afficher dans le Finder";
+
+/* Class = "NSButtonCell"; title = "Recurse into Applications"; ObjectID = "HUW-pw-w0O"; */
+"HUW-pw-w0O.title" = "Analyser Récursivement les Applications";
+
+/* Class = "NSButtonCell"; title = "Start Scanning"; ObjectID = "MEb-Ef-ukk"; */
+"MEb-Ef-ukk.title" = "Lancer l'analyse";
+
+/* Class = "NSTextFieldCell"; title = "Applications Found:"; ObjectID = "MJD-Yn-xAC"; */
+"MJD-Yn-xAC.title" = "Applications Trouvées :";
+
+/* Class = "NSMenuItem"; title = "Show All Apps"; ObjectID = "QoR-x6-4UR"; */
+"QoR-x6-4UR.title" = "Afficher Toutes les Apps";
+
+/* Class = "NSButtonCell"; title = "Only Scan the Applications Folder"; ObjectID = "b2W-HI-GII"; */
+"b2W-HI-GII.title" = "Analyser Uniquement le Répertoire Applications";
+
+/* Class = "NSButtonCell"; title = "Exclude Apple Applications"; ObjectID = "d0l-gf-yml"; */
+"d0l-gf-yml.title" = "Exclure les Applications Apple";
+
+/* Class = "NSMenuItem"; title = "Show Apple SIlicon Compatible Apps"; ObjectID = "uJw-yo-gLb"; */
+"uJw-yo-gLb.title" = "Afficher les Apps Compatibles Apple Silicon";
+
+/* Class = "NSMenuItem"; title = "Show Intel-Only Apps"; ObjectID = "ux4-9b-ut4"; */
+"ux4-9b-ut4.title" = "Afficher les Apps Seulement Intel";

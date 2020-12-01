@@ -26,88 +26,210 @@ import Foundation
 
 public class MachOFile
 {
-    public private( set ) var architectures: [ String ] = []
+    public enum Architecture: String {
+        case i386
+        case x86_64
+        case arm
+        case arm64
+        case ppc
+        case unknown = "<unknown>"
+    }
+    
+    public private( set ) var architectures: [ Architecture ] = []
     
     public init?( path: String )
     {
         do
         {
-            let stream = try BinaryStream( path: path )
-            let magic  = try stream.readBigEndianUnsignedInteger()
-            
-            if magic == 0xCAFEBABE
-            {
-                let count = try stream.readBigEndianUnsignedInteger()
-                
-                for _ in 0 ..< count
-                {
-                    let cpu = try stream.readBigEndianUnsignedInteger()
-                    let _   = try stream.readBigEndianUnsignedInteger()
-                    let _   = try stream.readBigEndianUnsignedInteger()
-                    let _   = try stream.readBigEndianUnsignedInteger()
-                    let _   = try stream.readBigEndianUnsignedInteger()
-                    
-                    self.architectures.append( MachOFile.cpuToArch( type: cpu ) )
-                }
-            }
-            else if magic == 0xCEFAEDFE
-            {
-                let cpu = try stream.readLittleEndianUnsignedInteger()
-                
-                self.architectures.append( MachOFile.cpuToArch( type: cpu ) )
-            }
-            else if magic == 0xFEEDFACE
-            {
-                let cpu = try stream.readBigEndianUnsignedInteger()
-                
-                self.architectures.append( MachOFile.cpuToArch( type: cpu ) )
-            }
-            else if magic == 0xCFFAEDFE
-            {
-                let cpu = try stream.readLittleEndianUnsignedInteger()
-                
-                self.architectures.append( MachOFile.cpuToArch( type: cpu ) )
-            }
-            else if magic == 0xFEEDFACF
-            {
-                let cpu = try stream.readBigEndianUnsignedInteger()
-                
-                self.architectures.append( MachOFile.cpuToArch( type: cpu ) )
-            }
-            else
-            {
-                return nil
-            }
+            try setupArchitectures(path: path)
         }
         catch
         {
             return nil
         }
     }
+}
+
+
+// MARK: - Helpers
+
+extension MachOFile {
     
-    public static func cpuToArch( type: UInt32 ) -> String
-    {
-        if type == 7
-        {
-            return "i386"
+    public var isAppleSiliconReady: Bool {
+        includesAppleArchitecture
+    }
+    
+    public var architecturesName: String {
+        [
+            uniqueArchitectureName,
+            universalName,
+            legacyArchitecturesNames
+        ].compactMap { $0 }.first ?? "Unknown"
+    }
+}
+
+extension MachOFile.Architecture {
+    
+    public var name: String {
+        switch self {
+        case .arm64:
+            return "Apple"
+        case .x86_64:
+            return "Intel 64"
+        case .i386:
+            return "Intel 32"
+        case .ppc:
+            return "PowerPC"
+        default:
+            return "Unknown"
         }
-        else if type == 7 | 0x01000000
-        {
-            return "x86_64"
+    }
+    
+    public var isApple: Bool {
+        self == .arm64
+    }
+    
+    public var isIntel32: Bool {
+        self == .i386
+    }
+    
+    public var isIntel64: Bool {
+        self == .x86_64
+    }
+    
+    public var isIntel: Bool {
+        isIntel32 || isIntel64
+    }
+    
+    public var isPPC: Bool {
+        self == .ppc
+    }
+}
+
+// MARK: - Private
+
+extension MachOFile {
+    
+    private enum Error: Swift.Error {
+        case failedToReadArchitectures
+    }
+    
+    private var isUniqueArchitecture: Bool {
+        architectures.count == 1
+    }
+    
+    private var includesAppleArchitecture: Bool {
+        architectures.filter({ $0.isApple }).count > 0
+    }
+    
+    private var includesIntelArchitecture: Bool {
+        architectures.filter({ $0.isIntel }).count > 0
+    }
+    
+    private var includesIntel32Architecture: Bool {
+        architectures.filter({ $0.isIntel32 }).count > 0
+    }
+    
+    private var includesIntel64Architecture: Bool {
+        architectures.filter({ $0.isIntel64 }).count > 0
+    }
+    
+    private var includesPPCArchitecture: Bool {
+        architectures.filter({ $0.isPPC }).count > 0
+    }
+    
+    private var includesLegacyArchitectures: Bool {
+        includesPPCArchitecture || includesIntelArchitecture
+    }
+    
+    private var universalName: String? {
+        includesAppleArchitecture ? "Universal" : nil
+    }
+    
+    private var ppcName: String? {
+        includesPPCArchitecture ? "PowerPC" : nil
+    }
+    
+    private var intelName: String? {
+        if includesIntel32Architecture && includesIntel64Architecture {
+            return "Intel 32/64"
+        } else if includesIntel32Architecture {
+            return "Intel 32"
+        } else if includesIntel64Architecture {
+            return "Intel 64"
+        } else {
+            return nil
         }
-        else if type == 12
-        {
-            return "arm"
+    }
+    
+    private var legacyArchitecturesNames: String? {
+        if !includesAppleArchitecture && includesLegacyArchitectures {
+            return [ppcName, intelName]
+                .compactMap { $0 }
+                .joined(separator: "/")
+        } else {
+            return nil
         }
-        else if type == 12 | 0x01000000
-        {
-            return "arm64"
-        }
-        else if type == 18
-        {
-            return "ppc"
-        }
+    }
+    
+    private var uniqueArchitectureName: String? {
+        isUniqueArchitecture ? architectures.first?.name : nil
+    }
+    
+    private func setupArchitectures ( path: String ) throws {
+        let stream = try BinaryStream( path: path )
+        let magic  = try stream.readBigEndianUnsignedInteger()
         
-        return "<unknown>"
+        switch magic {
+        case 0xCAFEBABE:
+            let count = try stream.readBigEndianUnsignedInteger()
+            
+            for _ in 0 ..< count
+            {
+                let cpu = try stream.readBigEndianUnsignedInteger()
+                let _   = try stream.readBigEndianUnsignedInteger()
+                let _   = try stream.readBigEndianUnsignedInteger()
+                let _   = try stream.readBigEndianUnsignedInteger()
+                let _   = try stream.readBigEndianUnsignedInteger()
+                
+                self.architectures.append( MachOFile.cpuToArch( type: cpu ) )
+            }
+        case 0xCEFAEDFE:
+            let cpu = try stream.readLittleEndianUnsignedInteger()
+            
+            self.architectures.append( MachOFile.cpuToArch( type: cpu ) )
+        case 0xFEEDFACE:
+            let cpu = try stream.readBigEndianUnsignedInteger()
+            
+            self.architectures.append( MachOFile.cpuToArch( type: cpu ) )
+        case 0xCFFAEDFE:
+            let cpu = try stream.readLittleEndianUnsignedInteger()
+            
+            self.architectures.append( MachOFile.cpuToArch( type: cpu ) )
+        case 0xFEEDFACF:
+            let cpu = try stream.readBigEndianUnsignedInteger()
+            
+            self.architectures.append( MachOFile.cpuToArch( type: cpu ) )
+        default:
+            throw Error.failedToReadArchitectures
+        }
+    }
+    
+    private static func cpuToArch( type: UInt32 ) -> Architecture
+    {
+        switch type {
+        case 7:
+            return .i386
+        case 7 | 0x01000000:
+            return .x86_64
+        case 12:
+            return .arm
+        case 12 | 0x01000000:
+            return .arm64
+        case 18:
+            return .ppc
+        default:
+            return .unknown
+        }
     }
 }
