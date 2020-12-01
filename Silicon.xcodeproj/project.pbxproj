@@ -122,6 +122,7 @@
 		0586D6202566CED200CBBD48 /* DropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropView.swift; sourceTree = "<group>"; };
 		05F025522575FF1200ADB3EA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainWindowController.strings"; sourceTree = "<group>"; };
 		05F025562575FF1A00ADB3EA /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/MainWindowController.strings"; sourceTree = "<group>"; };
+		A0765F9625763C1000A333A1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MainWindowController.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,6 +381,7 @@
 				Base,
 				"zh-Hans",
 				"zh-HK",
+				fr,
 			);
 			mainGroup = 0586D53E256696D900CBBD48;
 			productRefGroup = 0586D548256696D900CBBD48 /* Products */;
@@ -499,6 +501,7 @@
 			children = (
 				05F025522575FF1200ADB3EA /* zh-Hans */,
 				05F025562575FF1A00ADB3EA /* zh-HK */,
+				A0765F9625763C1000A333A1 /* fr */,
 			);
 			name = MainWindowController.strings;
 			sourceTree = "<group>";
