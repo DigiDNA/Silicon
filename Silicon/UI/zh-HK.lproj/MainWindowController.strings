@@ -5,7 +5,7 @@
 "9uz-mz-Can.title" = "您也可以將應用程序放在此處進行驗證.";
 
 /* Class = "NSTextFieldCell"; title = "Identify Intel-Only Apps on your Mac"; ObjectID = "DFM-dV-koX"; */
-"DFM-dV-koX.title" = "在您的Mac電腦上識別intel專用的應用程序";
+"DFM-dV-koX.title" = "在您的Mac電腦上識別Intel專用的應用程序";
 
 /* Class = "NSButton"; ibShadowedToolTip = "Reveal in Finder"; ObjectID = "GPh-5t-rfW"; */
 "GPh-5t-rfW.ibShadowedToolTip" = "在Finder中顯示";
@@ -29,7 +29,7 @@
 "d0l-gf-yml.title" = "排除Apple應用程序";
 
 /* Class = "NSMenuItem"; title = "Show Apple SIlicon Compatible Apps"; ObjectID = "uJw-yo-gLb"; */
-"uJw-yo-gLb.title" = "顯示Apple SIlicon兼容的應用程序";
+"uJw-yo-gLb.title" = "顯示Apple Silicon兼容的應用程序";
 
 /* Class = "NSMenuItem"; title = "Show Intel-Only Apps"; ObjectID = "ux4-9b-ut4"; */
 "ux4-9b-ut4.title" = "僅顯示Intel應用程序";
