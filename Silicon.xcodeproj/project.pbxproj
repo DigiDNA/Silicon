@@ -11,6 +11,7 @@
 		055568442567831F00B42091 /* GitHubUpdates.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0555683C2567831700B42091 /* GitHubUpdates.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		05680C07256F7E0C000520F2 /* IsZero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05680C06256F7E0C000520F2 /* IsZero.swift */; };
 		05680C0B256F7FA1000520F2 /* IsNotZero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05680C0A256F7FA1000520F2 /* IsNotZero.swift */; };
+		057BA11E28884F1E00324D16 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057BA11D28884F1E00324D16 /* AppInfo.swift */; };
 		0586D54B256696D900CBBD48 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586D54A256696D900CBBD48 /* ApplicationDelegate.swift */; };
 		0586D550256696DA00CBBD48 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0586D54E256696DA00CBBD48 /* MainMenu.xib */; };
 		0586D55D2566978100CBBD48 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586D55C2566978100CBBD48 /* App.swift */; };
@@ -61,6 +62,7 @@
 		055568362567831700B42091 /* GitHubUpdates.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GitHubUpdates.xcodeproj; path = Submodules/GitHubUpdates/GitHubUpdates.xcodeproj; sourceTree = "<group>"; };
 		05680C06256F7E0C000520F2 /* IsZero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsZero.swift; sourceTree = "<group>"; };
 		05680C0A256F7FA1000520F2 /* IsNotZero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsNotZero.swift; sourceTree = "<group>"; };
+		057BA11D28884F1E00324D16 /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		0586D547256696D900CBBD48 /* Silicon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Silicon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0586D54A256696D900CBBD48 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
 		0586D54F256696DA00CBBD48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			children = (
 				0586D5672566995800CBBD48 /* AboutWindowController.swift */,
 				0586D55C2566978100CBBD48 /* App.swift */,
+				057BA11D28884F1E00324D16 /* AppInfo.swift */,
 				0586D54A256696D900CBBD48 /* ApplicationDelegate.swift */,
 				0586D5752566B14200CBBD48 /* BinaryStream.swift */,
 				0586D6202566CED200CBBD48 /* DropView.swift */,
@@ -457,6 +460,7 @@
 				0586D5762566B14200CBBD48 /* BinaryStream.swift in Sources */,
 				0586D6212566CED200CBBD48 /* DropView.swift in Sources */,
 				0586D5792566B31A00CBBD48 /* MachOFile.swift in Sources */,
+				057BA11E28884F1E00324D16 /* AppInfo.swift in Sources */,
 				0586D5732566A31200CBBD48 /* NumberToString.swift in Sources */,
 				0586D54B256696D900CBBD48 /* ApplicationDelegate.swift in Sources */,
 				0586D5682566995800CBBD48 /* AboutWindowController.swift in Sources */,

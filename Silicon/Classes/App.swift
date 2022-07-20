@@ -44,47 +44,22 @@ import Cocoa
             return nil
         }
         
-        let plist = "\( path )/Contents/Info.plist"
-        
-        if FileManager.default.fileExists( atPath: plist ) == false
+        guard let info = AppInfo( path: path ) else
         {
             return nil
         }
         
-        guard let data = FileManager.default.contents( atPath: plist ),
-              let info = try? PropertyListSerialization.propertyList( from: data, options: [], format: nil ) as? [ String : Any ]
-        else
+        if FileManager.default.fileExists( atPath: info.executable.path ) == false
         {
             return nil
         }
         
-        guard let exec: String =
-        {
-            if let e = info[ "CFBundleExecutable" ] as? String, e != "WRAPPEDPRODUCTNAME"
-            {
-                return e
-            }
-            
-            return ( ( path as NSString ).lastPathComponent as NSString ).deletingPathExtension
-        }()
-        else
+        guard let macho = MachOFile( path: info.executable.path ) else
         {
             return nil
         }
         
-        let binary = "\( path )/Contents/MacOS/\( exec )"
-        
-        if FileManager.default.fileExists( atPath: binary ) == false
-        {
-            return nil
-        }
-        
-        guard let macho = MachOFile( path: binary ) else
-        {
-            return nil
-        }
-        
-        self.bundleID      = info[ "CFBundleIdentifier" ] as? String
+        self.bundleID      = info.info[ "CFBundleIdentifier" ] as? String
         self.name          = FileManager.default.displayName( atPath: path )
         self.path          = path
         self.icon          = NSWorkspace.shared.icon( forFile: path )
@@ -95,7 +70,7 @@ import Cocoa
             if macho.architectures.contains( "arm64" )
             {
                 self.isAppleSiliconReady = true
-                self.architecture        = "Apple"
+                self.architecture        = info.kind == .iOS ? "Apple (iOS)" : "Apple"
             }
             else if( macho.architectures.contains( "x86_64" ) )
             {
@@ -123,7 +98,7 @@ import Cocoa
             if macho.architectures.contains( "arm64" )
             {
                 self.isAppleSiliconReady = true
-                self.architecture        = "Universal"
+                self.architecture        = info.kind == .iOS ? "Universal (iOS)" : "Universal"
             }
             else if macho.architectures.contains( "ppc" ) && macho.architectures.contains( "i386" ) && macho.architectures.contains( "x86_64" )
             {
