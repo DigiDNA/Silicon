@@ -90,9 +90,9 @@ import Cocoa
         self.icon          = NSWorkspace.shared.icon( forFile: path )
         self.architectures = macho.architectures
         
-        if( macho.architectures.count == 1 )
+        if macho.architectures.count == 1
         {
-            if( macho.architectures.contains( "arm64" ) )
+            if macho.architectures.contains( "arm64" )
             {
                 self.isAppleSiliconReady = true
                 self.architecture        = "Apple"
@@ -102,12 +102,12 @@ import Cocoa
                 self.isAppleSiliconReady = false
                 self.architecture        = "Intel 64"
             }
-            else if( macho.architectures.contains( "i386" ) )
+            else if macho.architectures.contains( "i386" )
             {
                 self.isAppleSiliconReady = false
                 self.architecture        = "Intel 32"
             }
-            else if( macho.architectures.contains( "ppc" ) )
+            else if macho.architectures.contains( "ppc" )
             {
                 self.isAppleSiliconReady = false
                 self.architecture        = "PowerPC"
@@ -120,27 +120,27 @@ import Cocoa
         }
         else
         {
-            if( macho.architectures.contains( "arm64" ) )
+            if macho.architectures.contains( "arm64" )
             {
                 self.isAppleSiliconReady = true
                 self.architecture        = "Universal"
             }
-            else if( macho.architectures.contains( "ppc" ) && macho.architectures.contains( "i386" ) && macho.architectures.contains( "x86_64" ) )
+            else if macho.architectures.contains( "ppc" ) && macho.architectures.contains( "i386" ) && macho.architectures.contains( "x86_64" )
             {
                 self.isAppleSiliconReady = false
                 self.architecture        = "PowerPC/Intel 32/64"
             }
-            else if( macho.architectures.contains( "ppc" ) && macho.architectures.contains( "x86_64" ) )
+            else if macho.architectures.contains( "ppc" ) && macho.architectures.contains( "x86_64" )
             {
                 self.isAppleSiliconReady = false
                 self.architecture        = "PowerPC/Intel 64"
             }
-            else if( macho.architectures.contains( "ppc" ) && macho.architectures.contains( "i386" ) )
+            else if macho.architectures.contains( "ppc" ) && macho.architectures.contains( "i386" )
             {
                 self.isAppleSiliconReady = false
                 self.architecture        = "PowerPC/Intel 32"
             }
-            else if( macho.architectures.contains( "i386" ) && macho.architectures.contains( "x86_64" ) )
+            else if macho.architectures.contains( "i386" ) && macho.architectures.contains( "x86_64" )
             {
                 self.isAppleSiliconReady = false
                 self.architecture        = "Intel 32/64"
