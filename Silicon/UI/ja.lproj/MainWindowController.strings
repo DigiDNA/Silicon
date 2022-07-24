@@ -1,0 +1,35 @@
+/* Class = "NSWindow"; title = "Silicon"; ObjectID = "4ss-uf-DBv"; */
+"4ss-uf-DBv.title" = "Silicon";
+
+/* Class = "NSTextFieldCell"; title = "You can also drop an application here to verify it."; ObjectID = "9uz-mz-Can"; */
+"9uz-mz-Can.title" = "個別のアプリをここにドラックアンドドロップして確認できます。";
+
+/* Class = "NSTextFieldCell"; title = "Identify Intel-Only Apps on your Mac"; ObjectID = "DFM-dV-koX"; */
+"DFM-dV-koX.title" = "Mac内のIntel用アプリを判別する";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Reveal in Finder"; ObjectID = "GPh-5t-rfW"; */
+"GPh-5t-rfW.ibShadowedToolTip" = "Finderで表示";
+
+/* Class = "NSButtonCell"; title = "Recurse into Applications"; ObjectID = "HUW-pw-w0O"; */
+"HUW-pw-w0O.title" = "アプリ内の要素もスキャン対象に含む";
+
+/* Class = "NSButtonCell"; title = "Start Scanning"; ObjectID = "MEb-Ef-ukk"; */
+"MEb-Ef-ukk.title" = "スキャンを開始";
+
+/* Class = "NSTextFieldCell"; title = "Applications Found:"; ObjectID = "MJD-Yn-xAC"; */
+"MJD-Yn-xAC.title" = "見つかったアプリ:";
+
+/* Class = "NSMenuItem"; title = "Show All Apps"; ObjectID = "QoR-x6-4UR"; */
+"QoR-x6-4UR.title" = "すべてのアプリケーションを表示";
+
+/* Class = "NSButtonCell"; title = "Only Scan the Applications Folder"; ObjectID = "b2W-HI-GII"; */
+"b2W-HI-GII.title" = "アプリケーションフォルダのみスキャンする";
+
+/* Class = "NSButtonCell"; title = "Exclude Apple Applications"; ObjectID = "d0l-gf-yml"; */
+"d0l-gf-yml.title" = "Apple純正アプリを除く";
+
+/* Class = "NSMenuItem"; title = "Show Apple SIlicon Compatible Apps"; ObjectID = "uJw-yo-gLb"; */
+"uJw-yo-gLb.title" = "Appleシリコンに最適化されたアプリを表示";
+
+/* Class = "NSMenuItem"; title = "Show Intel-Only Apps"; ObjectID = "ux4-9b-ut4"; */
+"ux4-9b-ut4.title" = "Intel用アプリを表示";
