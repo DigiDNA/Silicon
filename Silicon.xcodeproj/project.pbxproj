@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -367,7 +367,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1220;
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1410;
 				TargetAttributes = {
 					0586D546256696D900CBBD48 = {
 						CreatedOnToolsVersion = 12.2;
@@ -435,6 +435,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		0586D59D2566C47900CBBD48 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
