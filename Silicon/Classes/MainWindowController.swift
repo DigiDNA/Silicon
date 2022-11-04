@@ -26,29 +26,41 @@ import Cocoa
 
 public class MainWindowController: NSWindowController
 {
-    @objc public private( set ) dynamic var started          = false
-    @objc public private( set ) dynamic var loading          = false
-    @objc private               dynamic var stop             = false
-    @objc public private( set ) dynamic var appsFolderOnly   = true
-    @objc public private( set ) dynamic var recurseIntoApps  = false
-    @objc public private( set ) dynamic var excludeAppleApps = false
-    @objc public private( set ) dynamic var appCount         = UInt64( 0 )
-    @objc public private( set ) dynamic var archFilter       = 0
+    @objc public private( set ) dynamic var started  = false
+    @objc public private( set ) dynamic var loading  = false
+    @objc private               dynamic var stop     = false
+    @objc public private( set ) dynamic var appCount = UInt64( 0 )
+
+    @objc public private( set ) dynamic var appsFolderOnly = UserDefaults.standard.value( forKey: "appsFolderOnly" ) == nil ? true : UserDefaults.standard.bool( forKey: "appsFolderOnly" )
     {
         didSet
         {
-            if self.archFilter == 1
-            {
-                self.archFilteredApps.filterPredicate = NSPredicate( format: "isAppleSiliconReady=NO" )
-            }
-            else if self.archFilter == 2
-            {
-                self.archFilteredApps.filterPredicate = NSPredicate( format: "isAppleSiliconReady=YES" )
-            }
-            else
-            {
-                self.archFilteredApps.filterPredicate = nil
-            }
+            UserDefaults.standard.set( self.appsFolderOnly, forKey: "appsFolderOnly" )
+        }
+    }
+
+    @objc public private( set ) dynamic var recurseIntoApps = UserDefaults.standard.bool( forKey: "recurseIntoApps" )
+    {
+        didSet
+        {
+            UserDefaults.standard.set( self.recurseIntoApps, forKey: "recurseIntoApps" )
+        }
+    }
+
+    @objc public private( set ) dynamic var excludeAppleApps = UserDefaults.standard.bool( forKey: "excludeAppleApps" )
+    {
+        didSet
+        {
+            UserDefaults.standard.set( self.excludeAppleApps, forKey: "excludeAppleApps" )
+        }
+    }
+
+    @objc public private( set ) dynamic var archFilter = UserDefaults.standard.integer( forKey: "archFilter" )
+    {
+        didSet
+        {
+            self.updateArchFilter()
+            UserDefaults.standard.set( self.archFilter, forKey: "archFilter" )
         }
     }
     
@@ -65,6 +77,7 @@ public class MainWindowController: NSWindowController
     public override func windowDidLoad()
     {
         super.windowDidLoad()
+        self.updateArchFilter()
         
         self.arrayController.sortDescriptors = [
             NSSortDescriptor( key: "name", ascending: true, selector: #selector( NSString.localizedCaseInsensitiveCompare( _: ) ) ),
@@ -119,6 +132,22 @@ public class MainWindowController: NSWindowController
             alert.beginSheetModal( for: window, completionHandler: nil )
             
             return true
+        }
+    }
+
+    private func updateArchFilter()
+    {
+        if self.archFilter == 1
+        {
+            self.archFilteredApps.filterPredicate = NSPredicate( format: "isAppleSiliconReady=NO" )
+        }
+        else if self.archFilter == 2
+        {
+            self.archFilteredApps.filterPredicate = NSPredicate( format: "isAppleSiliconReady=YES" )
+        }
+        else
+        {
+            self.archFilteredApps.filterPredicate = nil
         }
     }
     
